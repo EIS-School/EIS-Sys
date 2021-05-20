@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Transportation</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ====================================================================== -->
+
+      <!-- ------------------------------attendance-wrapper------------------------ -->
+      <div class="attendance-wrapper">
+        <div class="container">
+          <div class="pageHead">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="page-header">
+                  <h1>
+                    Transportation
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                  </li>
+                  <li class="active">Transportation</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================================================================== -->
+
+          <!-- ------------------------------Transportation-content------------------------ -->
+          <div class="Transportation-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a
+                        href="#record"
+                        aria-controls="record"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-bus-alt fa-2x"></i> <br />
+                        Bus Record</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#Subscrip-Bus"
+                        aria-controls="Subscrip-Bus"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-user-plus fa-2x"></i> <br />
+                        Subscribe Employees
+                      </a>
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#Unsubscrip-Bus"
+                        aria-controls="Unsubscrip-Bus"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-user-times fa-2x"></i> <br />
+                        Unsubscribe Employees</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#insertBus"
+                        aria-controls="fingerprint"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-pencil-alt fa-2x"></i> <br />
+                        Insert Bus</a
+                      >
+                    </li>
+                  </ul>
+
+                  <!-- --------------------Tab panes ----------------------->
+                  <div class="tab-content">
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade in active"
+                      id="record"
+                    >
+                      <!-- ---------------------Search-box----------------------- -->
+                      <div class="search-box">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <form action="">
+                              <div class="row">
+                                <div class="form-group col-lg-4">
+                                  <label for="">Department</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value=""
+                                      >Selcet by Department</option
+                                    >
+                                    <option value="">Administratives</option>
+                                    <option value="">Care Sevices</option>
+                                    <option value="">Teachers</option>
+                                    <option value=""
+                                      >Information Technology (IT)</option
+                                    >
+                                    <option value="">Others</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-4">
+                                  <label for="">Employee Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter employee name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-4">
+                                  <label for="">Bus Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter bus name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-success btn-search pull-right"
+                                >
+                                  <i class="fas fa-search"></i> Search
+                                </button>
+                              </div>
+                              <!-- /.row -->
+                            </form>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.Search-box -->
+                      <!-- ============================================================ -->
+
+                      <!-- ---------------Start Attendance Record Tap---------- -->
+                      <div class="Bus-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="Bus-table"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Bus name</th>
+                                  <th>Employee name</th>
+                                  <th>Position</th>
+                                  <th>Subscribe date</th>
+                                  <th>Bus line</th>
+                                  <th>Bus type</th>
+                                  <th>Bus fee</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Ahmed Ali</td>
+                                  <td>English Teacher</td>
+                                  <td>22/07/2019</td>
+                                  <td>New Cairo</td>
+                                  <td>Hyundai</td>
+                                  <td>150 EGP</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-203</td>
+                                  <td>Moustafa Nassar</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+                                  <td>6 October</td>
+                                  <td>Chevrolet</td>
+                                  <td>150 EGP</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-204</td>
+                                  <td>Ali Hassan</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>22/07/2019</td>
+                                  <td>Obour City</td>
+                                  <td>Mazda</td>
+                                  <td>150 EGP</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-203</td>
+                                  <td>Saber Moustafa</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+                                  <td>6 October</td>
+                                  <td>Chevrolet</td>
+                                  <td>150 EGP</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Bus Record Table -->
+                    </div>
+                    <!-- /.Bus Record Tap -->
+                    <!-- ============================================================================ -->
+
+                    <!-- ------------------------------Start Subscrip Bus Tap-------------------------- -->
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade"
+                      id="Subscrip-Bus"
+                    >
+                      <!-- ------------------------------Search-box------------------------------------- -->
+                      <div class="search-box">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <form action="">
+                              <div class="row">
+                                <div class="form-group col-lg-3">
+                                  <label for="">Department</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value=""
+                                      >Selcet by Department</option
+                                    >
+                                    <option value="">Administratives</option>
+                                    <option value="">Care Sevices</option>
+                                    <option value="">Teachers</option>
+                                    <option value=""
+                                      >Information Technology (IT)</option
+                                    >
+                                    <option value="">Others</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Employee Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter employee name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Bus Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter bus name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Subscribe Date</label>
+                                  <div class="input-group">
+                                    <input type="date" class="form-control" />
+                                    <div class="input-group-addon">
+                                      <i
+                                        class="
+                                                  glyphicon glyphicon-calendar"
+                                      ></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary btn-search pull-right"
+                                >
+                                  <i class="fas fa-plus-circle"></i> Add user
+                                </button>
+                              </div>
+                              <!-- /.row -->
+                            </form>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.Search-box -->
+                      <!-- ======================================================================= -->
+
+                      <!-- --------------------------Start Subscrib Bus Table---------------------- -->
+                      <div class="newAttend-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="Bus-table"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Bus name</th>
+                                  <th>Employee name</th>
+                                  <th>Position</th>
+                                  <th>Subscribe date</th>
+
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Ahmed Ali</td>
+                                  <td>English Teacher</td>
+                                  <td>22/07/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Moustafa Nassar</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Ali Hassan</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>22/07/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Saber Moustafa</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#recordEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Subscrip Bus-table -->
+                    </div>
+                    <!-- /.Subscrip Bus Tap -->
+                    <!-- ========================================================================== -->
+
+                    <!-- ------------------------------Start Unsubscrip Bus Tap-------------------------- -->
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade"
+                      id="Unsubscrip-Bus"
+                    >
+                      <!-- ------------------------------Search-box------------------------------------- -->
+                      <div class="search-box">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <form action="">
+                              <div class="row">
+                                <div class="form-group col-lg-3">
+                                  <label for="">Department</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value=""
+                                      >Selcet by Department</option
+                                    >
+                                    <option value="">Administratives</option>
+                                    <option value="">Care Sevices</option>
+                                    <option value="">Teachers</option>
+                                    <option value=""
+                                      >Information Technology (IT)</option
+                                    >
+                                    <option value="">Others</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Employee Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter employee name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Bus Name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter bus name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Unsubscribe Date</label>
+                                  <div class="input-group">
+                                    <input type="date" class="form-control" />
+                                    <div class="input-group-addon">
+                                      <i
+                                        class="
+                                                                    glyphicon glyphicon-calendar"
+                                      ></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary btn-search pull-right"
+                                >
+                                  <i class="fas fa-plus-circle"></i> Add user
+                                </button>
+                              </div>
+                              <!-- /.row -->
+                            </form>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.Search-box -->
+                      <!-- ======================================================================= -->
+
+                      <!-- --------------------------Start Unsubscrib Bus Table---------------------- -->
+                      <div class="">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id=""
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Bus name</th>
+                                  <th>Employee name</th>
+                                  <th>Position</th>
+                                  <th>Unsubscribe date</th>
+
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Ahmed Ali</td>
+                                  <td>English Teacher</td>
+                                  <td>22/07/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#UnsubscribEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Moustafa Nassar</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#UnsubscribEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Ali Hassan</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>22/07/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#UnsubscribEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>Saber Moustafa</td>
+                                  <td>Administrative</td>
+                                  <td>22/06/2019</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#UnsubscribEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Unsubscrib Bus Table -->
+                    </div>
+                    <!-- /.Unsubscrib Bus Tap -->
+                    <!-- ========================================================================== -->
+
+                    <!-- ------------------------------Start Insert Bus Tap-------------------------- -->
+                    <div role="tabpanel" class="tab-pane fade" id="insertBus">
+                      <!-- ------------------------------Search-box------------------------------------- -->
+                      <div class="search-box">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <form action="">
+                              <div class="row">
+                                <div class="form-group col-lg-3">
+                                  <label for="">Bus Name</label>
+
+                                  <input
+                                    type="text"
+                                    class="form-control typeahead"
+                                    placeholder="Enter bus name"
+                                  />
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Bus Line</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value="">Selcet Bus Line</option>
+                                    <option value="">New Cairo</option>
+                                    <option value="">6 October</option>
+                                    <option value="">Haram 1</option>
+                                    <option value="">Haram 2</option>
+                                    <option value="">Haram 3</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Bus Type</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value="">Selcet Bus Type</option>
+                                    <option value="">Hyundai</option>
+                                    <option value="">Chevrolet</option>
+                                    <option value="">Mercedes</option>
+                                    <option value="">TOYOTA</option>
+                                    <option value="">Mazda</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-3">
+                                  <label for="">Driver Name</label>
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter bus driver name"
+                                  />
+                                </div>
+                                <!-- /.form-group -->
+                                <button
+                                  type="submit"
+                                  class="btn btn-primary btn-search pull-right"
+                                >
+                                  <i class="fas fa-plus-circle"></i> Add Bus
+                                </button>
+                              </div>
+                              <!-- /.row -->
+                            </form>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.Search-box -->
+                      <!-- ======================================================================= -->
+
+                      <!-- --------------------------Start Insert Bus Table---------------------- -->
+                      <div class="">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id=""
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Bus name</th>
+                                  <th>Bus line</th>
+                                  <th>Bus type</th>
+                                  <th>Driver name</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>B-202</td>
+                                  <td>New Cairo</td>
+                                  <td>Hyundai</td>
+                                  <td>Ahmed Ali</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#insertEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-203</td>
+                                  <td>Haram 1</td>
+                                  <td>TOYOTA</td>
+                                  <td>Mohamed Badr</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#insertEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-204</td>
+                                  <td>Haram 2</td>
+                                  <td>TOYOTA</td>
+                                  <td>Hassan Khalil</td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#insertEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>B-205</td>
+                                  <td>6 October</td>
+                                  <td>Mercedes</td>
+                                  <td>Samir Mohsen</td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target="#insertEdit"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteDay"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.insert Bus-table -->
+                    </div>
+                    <!-- /.insert Bus Tap -->
+                    <!-- ========================================================================== -->
+                  </div>
+                  <!-- /.tab-content -->
+                </div>
+                <!-- /.Nav tabs  -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.Transportation-content -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.Transportation-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+    <!-- ================================================================================================= -->
+
+    <!-- ----------------------------------------------Start Models--------------------------------------- -->
+
+    <!-------------------------------------------------Bus Record Edit Modal --------------------------------->
+    <div
+      class="modal fade"
+      id="recordEdit"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Edit Transportation Info
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body">
+            <form action="">
+              <div class="row">
+                <div class="form-group col-lg-6">
+                  <label for="">Department</label>
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Selcet by Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-6">
+                  <label for="">Employee Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter employee name"
+                  />
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-6">
+                  <label for="">Subscrib Date</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <div class="input-group-addon">
+                      <i
+                        class="
+                              glyphicon glyphicon-calendar"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Line</label>
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Selcet Bus Line</option>
+                    <option value="">Haram 1</option>
+                    <option value="">Haram 2</option>
+                    <option value="">Haram 3</option>
+                    <option value="">Haram 4</option>
+                    <option value="">Haram 5</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Type</label>
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Selcet Bus Type</option>
+                    <option value="">Mazda</option>
+                    <option value="">TOYOTA</option>
+                    <option value="">Mercedes</option>
+                    <option value="">Chevrolet</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Fee</label>
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="form-control"
+                      placeholder="Amount"
+                    />
+                    <div class="input-group-addon">
+                      EGP
+                    </div>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+                <div class="col-lg-12">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" /> An exception from the bus
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- /.row -->
+            </form>
+          </div>
+          <!-- /.model-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save &amp; Update
+            </button>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================================================== -->
+
+    <!-------------------------------------------------Bus Unsubscribe Edit Modal --------------------------------->
+    <div
+      class="modal fade"
+      id="UnsubscribEdit"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Edit Transportation Info
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body">
+            <form action="">
+              <div class="row">
+                <div class="form-group col-lg-12">
+                  <label for="">Department</label>
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Selcet by Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-12">
+                  <label for="">Employee Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter employee name"
+                  />
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group col-lg-12">
+                  <label for="">Unsubscrib Date</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <div class="input-group-addon">
+                      <i
+                        class="
+                              glyphicon glyphicon-calendar"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.row -->
+            </form>
+          </div>
+          <!-- /.model-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save &amp; Update
+            </button>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ========================================================================================================= -->
+
+    <!-------------------------------------------------Insert Bus Edit Modal --------------------------------->
+    <div
+      class="modal fade"
+      id="insertEdit"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Edit Transportation Info
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body">
+            <form action="">
+              <div class="row">
+               
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter bus name"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Line</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter bus line"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group col-lg-6">
+                  <label for="">Bus Type</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter bus type"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group col-lg-6">
+                  <label for="">Driver Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter driver name"
+                  />
+                </div>
+                <!-- /.form-group -->
+                
+              </div>
+              <!-- /.row -->
+            </form>
+          </div>
+          <!-- /.model-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save &amp; Update
+            </button>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================= -->
+
+    <!------------------------ Delete modal ----------------------->
+    <div id="" class="modal fade deleteDay">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="fas fa-trash"></i>
+            </div>
+            <h4 class="modal-title">Are you sure?</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Do you really want to delete these records?<br />This process can
+              not be undone.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================================================================= -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/typeahead.jquery.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+      $("#attend-table").dataTable({
+        ordering: false
+      });
+
+      $("#addAttend-table").dataTable({
+        ordering: false
+      });
+    </script>
+  </body>
+</html>

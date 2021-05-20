@@ -1,0 +1,3649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Employee Application</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ================================================================== -->
+
+      <!-- --------------------------Strat Employees wrapper--------------- -->
+      <div class="applications-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="pageHead">
+                <div class="page-header">
+                  <h1>
+                    Employee Application
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                    <li>
+                      <a href="MainEmployees.html">
+                          Employees Dashboard
+                      </a>
+                    </li>
+                  </li>
+                  <li class="active">Employee Application</li>
+                </ol>
+              </div>
+              <!-- /.pageHead -->
+
+              <!-------------------- Start Employee Application wrapper --------------->
+              <div class="Application-wrapper">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div>
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                          <a
+                            href="#arabicForm"
+                            aria-controls="arabicForm"
+                            role="tab"
+                            data-toggle="tab"
+                            ><i class="fas fa-paste fa-2x"></i> <br />
+                            Arabic Application Form
+                          </a>
+                        </li>
+                        <li role="presentation">
+                          <a
+                            href="#englishForm"
+                            aria-controls="englishForm"
+                            role="tab"
+                            data-toggle="tab"
+                            ><i class="fas fa-paste fa-2x"></i> <br />
+                            English Application Form
+                          </a>
+                        </li>
+                      </ul>
+
+                      <!-- --------------------Start Arabic Form Tap ----------------------->
+                      <div class="tab-content">
+                        <div
+                          role="tabpanel"
+                          class="tab-pane fade in active"
+                          id="arabicForm"
+                        >
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="img-box img-arbicbox text-center">
+                                <p class="lead">صورة المرشح</p>
+                                <img src="imgs/index.png" alt="" />
+                                <p>من فضلك قم بأختيار صورة المترشح</p>
+                                <div class="form-group col-lg-4 col-lg-push-4 ">
+                                  <input type="file" class="form-control" />
+                                </div>
+                                <!-- /.form-group -->
+                              </div>
+                              <!-- /.img-box -->
+                            </div>
+                            <!-- /.col-lg-3 -->
+                            <br />
+                            <hr />
+                            <!-- ================================================================= -->
+                            <div class="col-lg-12">
+                              <form action="" class="candidate-from">
+                                <!-- Start Personal Information -->
+                                <div class="personalInfo">
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="studentID"
+                                        >الاسم الاخير</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="ادخل الاسم الاخير "
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الاسم الاول</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="ادخل الاسم الاول"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">هوية المتقدم</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        value="2122"
+                                        disabled
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.form row1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">البريد الالكتروني</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل البريد الالكتروني"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">رقم الهاتف</label>
+                                      <input
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="أدخل رقم الهاتف"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">المؤهل الدراسي</label>
+                                      <input
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="أدخل المؤهل الدراسي"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.form row2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for=""
+                                        >رقم الهاوية / الرقم القومي</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل رقم الهاوية / الرقم القومي"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">تاريخ الميلاد</label>
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">النوع / الجنس</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >اختر النوع / الجنس
+                                        </option>
+                                        <option value="">ذكر</option>
+                                        <option value="">انثي</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.form row3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الموقف من التجنيد </label>
+                                      <small class="text-danger"
+                                        >للذكور فقط</small
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >حدد الموقف من التجنيد
+                                        </option>
+                                        <option value="">معاف</option>
+                                        <option value="">مؤجل</option>
+                                        <option value="">لم يصبة الدور</option>
+                                        <option value="">انهاء الخدمة</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الحالة الاجتماعية</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >أختر الحالة الاجتماعية</option
+                                        >
+                                        <option value="">أعزب</option>
+                                        <option value="">متزوج</option>
+                                        <option value="">أرمل</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الجنسية</label>
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">اختر الجنسية</option>
+                                        <option value="">مصري</option>
+                                        <option value="">سوري</option>
+                                        <option value="">لبناني</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.form row4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for="">العنوان</label>
+                                      <textarea
+                                        class="form-control"
+                                        rows="3"
+                                        placeholder="أدخل تفاصيل العنوان"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /.Personal Information inputs -->
+                                <!-- ================================================== -->
+                                <hr />
+                                <!-- Start Job Skills & Training row -->
+                                <div class="jobSkills-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>مهارات العمل والتدريب</h2>
+                                    </div>
+                                    <br />
+                                    <!--  -->
+                                    <div class="form-group col-lg-3">
+                                      <label for="">عدد سنوات الخبرة</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل عدد سنوات الخبرة"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-3">
+                                      <label for="">المسمي الوظيفي </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >أختر المسمي الوظيفي</option
+                                        >
+                                        <option value="">مدرس لغة عربية</option>
+                                        <option value=""
+                                          >مدرس تربية فنية</option
+                                        >
+                                        <option value=""
+                                          >مدرس لغة انجليزية</option
+                                        >
+                                        <option value=""
+                                          >مدرس لغة المانية</option
+                                        >
+                                        <option value="">مدرس علوم</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >ما هو المنصب الذي تتطمح له؟
+                                      </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الوظيفة</option>
+                                        <option value="">أداري</option>
+                                        <option value="">مساعد</option>
+                                        <option value="">مدرس</option>
+                                        <option value="">مدير</option>
+                                        <option value=""
+                                          >تكنولوجيا المعلومات</option
+                                        >
+                                        <option value="">عامل</option>
+                                        <option value="">أخري</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-12">
+                                      <div class="form-group">
+                                        <label for=""
+                                          >اوصف المهارات الخاصة بك
+                                        </label>
+                                        <textarea
+                                          class="form-control"
+                                          name=""
+                                          id=""
+                                          cols="30"
+                                          rows="10"
+                                          placeholder="أدخل تفاصيل عن خبراتك و مهاراتك بخوص هذه الوظيفة"
+                                        ></textarea>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.End Job Skills row -->
+                                </div>
+                                <!-- /.jobSkills-wrapper -->
+                                <hr />
+                                <!-- ====================================================================== -->
+                                <!-- Start Work Experience wrapper -->
+                                <div class="experience-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>الخبرات السابقة</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.experience row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">المرحلة الدراسية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل المرحلة الدراسية "
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">المسمي الوظيفي</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل المسمي الوظيفي"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">اسم المؤسسة</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم المؤسسة  "
+                                      />
+                                    </div>
+                                    <!--  -->
+                                  </div>
+                                  <!-- /.experience row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الراتب</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل قيمة الراتب"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">التاريخ / الي</label>
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">التاريخ / من</label>
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <!-- /.experience row 3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for="">أسباب ترك العمل</label>
+                                      <textarea
+                                        name=""
+                                        class="form-control"
+                                        id=""
+                                        cols="30"
+                                        rows="10"
+                                        placeholder="أدخل أسباب ترك العمل"
+                                      ></textarea>
+                                    </div>
+                                    <!-- Add Button -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      أضف المزيد
+                                    </button>
+                                  </div>
+                                  <br />
+                                  <!-- /.experience row 4 -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table
+                                        class="table"
+                                        id="experience-table"
+                                      >
+                                        <thead>
+                                          <tr>
+                                            <th>أسم المؤسسة</th>
+                                            <th>المسمي الوظيفي</th>
+                                            <th>المرحلة الدراسية</th>
+                                            <th>من</th>
+                                            <th>الي</th>
+                                            <th>الراتب</th>
+                                            <th>اسباب ترك العمل</th>
+                                            <th>تعديل</th>
+                                            <th>حذف</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>المدرسة واحد</td>
+                                            <td>وظيفة واحد</td>
+                                            <td>مرحلة واحد</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td>2000 ج.م</td>
+                                            <td>اسباب واحد</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>المدرسة اثنان</td>
+                                            <td>وظيفة اثنان</td>
+                                            <td>مرحلة اثنان</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td>1500 ج.م</td>
+                                            <td>اسباب اثنان</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.training-table col -->
+                                  </div>
+                                  <!-- /.training-table row -->
+                                </div>
+                                <!-- End Work Experience wrapper -->
+                                <hr />
+                                <!-- =================================================================== -->
+                                <!-- Start Training or Certifications row  -->
+                                <div class="training-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>الدورات التدريبية أو الشهادات</h2>
+                                    </div>
+                                  </div>
+                                  <br />
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل تشارك حاليا أو كنت قد اخذت بالفعل
+                                        دورة تدريبية إذا كان الجواب نعم أدخل
+                                        تفاصيل الدورة</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">لغة الدورة التدريبية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل لغة الدورة التدريبية"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">أسم المركز التعليمي</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم المركز"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">أسم الدورة التدريبية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم الدورة التدريبية"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">التاريخ / الي</label>
+
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">التاريخ / من</label>
+
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                    <!--  -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      أضف المزيد
+                                    </button>
+                                  </div>
+                                  <br />
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table" id="training-table">
+                                        <thead>
+                                          <tr>
+                                            <th>أسم الدورة</th>
+                                            <th>أسم المركز</th>
+                                            <th>لغة الدورة</th>
+                                            <th>من</th>
+                                            <th>الي</th>
+                                            <th>تعديل</th>
+                                            <th>حذف</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>دورة واحد</td>
+                                            <td>مركز واحد</td>
+                                            <td>لغة واحد</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>دورة اتنان</td>
+                                            <td>مركز اثنان</td>
+                                            <td>لغة اثنان</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.training-table col -->
+                                  </div>
+                                  <!-- /.training-table row -->
+                                </div>
+                                <!-- /. End training-wrapper -->
+                                <hr />
+                                <!-- ===================================================================== -->
+                                <!-- Start Educational Achievement wrapper -->
+                                <div class="achievement-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>التحصيل العلمي</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 1 -->
+                                  <div class="row">
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number3.png" alt=""
+                                        /></i>
+                                        المرحلة الثانوية
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">أسم المدرسة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل اسم المدرسة "
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">الدرجة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل الدرجة الثانوية"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">سنة التخرج</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدحل سنة التخرج من المرحلة الثانوية"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <img src="imgs/number2.png" alt="" />
+                                        المرحلة الاعدادية
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">أسم المدرسة </label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل اسم المدرسة الاعدادية"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">الدرجة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل الدرجة الاعدادية"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">سنة التخرج</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل سنة التخرج من المرحلة الثانوية"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <img src="imgs/number1.png" alt="" />
+                                        المرحلة الابتدائية
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">أسم المدرسة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل اسم المدرسة الابتدائية"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">الدرجة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل الدرجة الابتدائية"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">سنة التخرج</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل سنة التخرج من المرحلة الابتدائية"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 2 -->
+                                  <hr />
+                                  <!-- Start  University Education row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number4.png" alt=""
+                                        /></i>
+                                        التعليم الجامعي
+                                      </p>
+                                      <div class="form-group">
+                                        <label for=""
+                                          >هل حصلت علي تعليم جامعي</label
+                                        >
+                                        <select
+                                          name=""
+                                          id=""
+                                          class="form-control"
+                                          data-width="100%"
+                                        >
+                                          <option value="">أختر الاجابه</option>
+                                          <option value="">نعم</option>
+                                          <option value="">لا</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">أسم الكلية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم الكلية"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">أسم الجامعة / المعهد</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم الجامعة / المعهد"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">المؤهل الدراسي</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم المؤهل الدراسي الحاصل عليه"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">التخصص</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم التخصص"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 5 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">سنة التخرج</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل سنة التخرج "
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">الدرجة العلمية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="ادخل الدرجة العلمية / التقدير الحاصل عليه"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 6 -->
+                                  <hr />
+                                  <!-- Start Other Degrees row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number5.png" alt=""
+                                        /></i>
+                                        تحصيل علمي اخر
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 7-->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل حصلت علي درجات علمية اخري مثل
+                                        الماجيستير أو الدكتوراه</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-12">
+                                      <label for="">نوع التحصيل العلمي</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value=""> بكالوريوس</option>
+                                        <option value="">دبلومة</option>
+                                        <option value="">ماجيستير</option>
+                                        <option value="">دكتوراه</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 8 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">أسم الكلية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم الكلية"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">أسم الجامعة / المعهد</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم الجامعة / المعهد"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">المؤهل الدراسي</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم المؤهل الدراسي الحاصل عليه"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">التخصص</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل اسم التخصص"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 5 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">سنة التخرج</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل سنة التخرج "
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">الدرجة العلمية</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="ادخل الدرجة العلمية / التقدير الحاصل عليه"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 6 -->
+                                </div>
+                                <!-- /.End Educational Achievement wrapper -->
+                                <hr />
+                                <!-- =================================================== -->
+                                <!-- Start computer and language Skills wrapper  -->
+                                <div class="otherSkills-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>مهارات اللغات و الكمبيوتر</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.computer and language Skills row 1 -->
+
+                                  <!-- Start Language Skills row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <img src="imgs/number1.png" alt="" />
+                                        مهارات اللغات
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">أضف لغة</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل اللغة"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Language Skills row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">المحادثة</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">الكتابة</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">قراءة </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      أضف المزيد
+                                    </button>
+                                  </div>
+                                  <!-- /.Language Skills row 3 -->
+                                  <br />
+                                  <!-- Start Language skills table -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table" id="language-table">
+                                        <thead>
+                                          <tr>
+                                            <th>اللغة</th>
+                                            <th>القراءة</th>
+                                            <th>الكتابة</th>
+                                            <th>المحادثة</th>
+                                            <th>تعديل</th>
+                                            <th>حذف</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>الانجليزية</td>
+                                            <td>جيد</td>
+                                            <td>جيد</td>
+                                            <td>جيد</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>الفرنسية</td>
+                                            <td>جيد</td>
+                                            <td>جيد</td>
+                                            <td>جيد</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.language Skills table col -->
+                                  </div>
+                                  <!-- /.Language skills row 4 -->
+                                  <hr />
+                                  <!-- Start Computer Skills row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <img src="imgs/number2.png" alt="" />
+                                        مهارات الكمبيوتر
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <!-- /.Computer Skills row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">مايكروسوفت باوربوينت</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">مايكروسوفت أكسيل</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">مايكروسوفت وورد</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ضعيف</option>
+                                        <option value="">جيد</option>
+                                        <option value="">جيد جدا</option>
+                                        <option value="">ممتاز</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.Computer skills row 2 -->
+                                </div>
+                                <!-- /. End computer and language Skills wrapper -->
+                                <hr />
+                                <!-- =================================================== -->
+
+                                <!-- Stat family Members Informations -->
+                                <div class="family-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>معلومات أفراد العائلة</h2>
+                                    </div>
+                                  </div>
+                                  <!-- Start Father row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">وظيفة الوالد</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل وظيفة الوالد"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">مؤهل الوالد</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل مؤهل الوالد"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /. End Father row -->
+
+                                  <!-- Start Mother row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">وظيفة الوالدة</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل وظيفة الوالدة"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">مؤهل الوالدة</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل مؤهل الوالدة"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /. End Mother row -->
+                                  <hr />
+                                  <!-- Start married row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل انت متزوج / متزوجة</label
+                                      >
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لأ</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">وظيفة الزوج / الزوجة</label>
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="أدخل وظيفة الزوج / الزوجة"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">مؤهل الزوج / الزوجة</label>
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="أدخل مؤهل الزوج / الزوجة"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.End married row -->
+                                  <hr />
+                                  <!-- Start Siblings Information row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for="">هل لديك اخواه</label>
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">عدد الاخواه</label>
+
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل عدد الاخواه"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">نوع الاخواه / الجنس</label>
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">ذكر</option>
+                                        <option value="">انثي</option>
+                                        <option value="">كلاهما</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.End Siblings Information row 1 -->
+
+                                  <!-- Start Sibling Information row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">وظيفة الاخ / الاخت</label>
+
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل وظيفة الاخ / الاخت"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">مؤهل الاخ / الاخت</label>
+
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="أدخل مؤهل الاخ / الاخت"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      أضف المزيد
+                                    </button>
+                                  </div>
+                                  <!-- /. End Sibling Information row 2 -->
+
+                                  <br />
+                                  <!-- / Star Sibling Tabel row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th>نوع الاخواه / الجنس</th>
+
+                                            <th>مؤهل الاخ / الاخت</th>
+                                            <th>وظيفة الاخ / الاخت</th>
+                                            <th>تعديل</th>
+                                            <th>حذف</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>ذكر</td>
+
+                                            <td>بكالوريوس تربية</td>
+                                            <td>مدرس</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>أنثي</td>
+
+                                            <td>بكالوريوس هندسة</td>
+                                            <td>مهندسة</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.Sibling Tabel col -->
+                                  </div>
+                                  <!-- /.End Sibling Tabel row -->
+                                </div>
+                                <!-- /.family-wrapper -->
+                                <hr />
+                                <!-- =========================================================== -->
+                                <!-- Start Questions Form  -->
+                                <div class="Questions-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>اسئلة اخرى</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.Questions-wrapper row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل هناك أي من أقاربك يعملون
+                                        معنا؟</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >إذا كانت إجابتك نعم ، فاكتب اسمه
+                                        أدناه</label
+                                      >
+                                      <textarea
+                                        name=""
+                                        class="form-control"
+                                        id=""
+                                        cols="2"
+                                        rows="2"
+                                        placeholder="أدخل اسم احدي اقاربك الذين يعملون معانا"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >أذا تمت الموافقة عليك متي ستكون جاهز
+                                        لاستلام العمل؟</label
+                                      >
+                                      <input type="date" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل كنت طالبا في المدارس المصرية
+                                        الدولية؟</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >هل هذه هي المرة الأولى التي يتم فيها
+                                        التقديم في المدارس المصرية
+                                        الدولية؟</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value="">نعم</option>
+                                        <option value="">لا</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">الراتب المتوقع</label>
+
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل القيمة"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">الراتب الحالي</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="أدخل القيمة"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <label for=""
+                                        >كيف تمت إحالتك إلينا؟</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control"
+                                        data-width="100%"
+                                      >
+                                        <option value="">أختر الاجابة</option>
+                                        <option value=""
+                                          >موقعنا الالكتروني</option
+                                        >
+                                        <option value=""
+                                          >اعلانات الجرائد</option
+                                        >
+                                        <option value="">صفحة الفيس بوك</option>
+                                        <option value="">ترشيح صديق</option>
+
+                                        <option value="">أخري</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.Questions-wrapper row -->
+                                  <hr />
+                                  <!-- ==================================================== -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p>
+                                        أشهد أن إجاباتي صحيحة وكاملة على حد
+                                        علمي. إذا أدى هذا التطبيق إلى التوظيف ،
+                                        فأنا أفهم أن المعلومات الخاطئة أو
+                                        المضللة في طلبي أو مقابلتي قد تؤدي إلى
+                                        إنهاء عملي.
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">توقيع</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="أدخل اسمك"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /. End Questions-wrapper -->
+                                <hr />
+                                <!-- Buttons Form -->
+                                <button type="button" class="btn btn-danger">
+                                  طباعة البيانات
+                                </button>
+                                <!--  -->
+                                <button type="submit" class="btn btn-primary">
+                                  حفظ البيانات
+                                </button>
+                              </form>
+                              <!-- /.main form  -->
+                            </div>
+                            <!-- /.col-lg-9 -->
+                            <!-- =============================================================== -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.Arabic Form Tap  -->
+                        <!-- ============================================== -->
+
+                        <!-- ---------------Start English Application Form ---------- -->
+                        <div
+                          role="tabpanel"
+                          class="tab-pane fade"
+                          id="englishForm"
+                        >
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="img-box text-center">
+                                <p class="lead">Candidate's image</p>
+                                <img src="imgs/index.png" alt="" />
+                                <p>Please select image for candidate</p>
+                                <div class="form-group col-lg-4 col-lg-push-4">
+                                  <input type="file" class="form-control" />
+                                </div>
+                                <!-- /.form-group -->
+                              </div>
+                              <!-- /.img-box -->
+                            </div>
+                            <!-- /.col-lg-12 -->
+                            <br />
+                            <hr />
+                            <!-- =============================================================== -->
+                            <div class="col-lg-12">
+                              <form action="" class="candidate-from">
+                                <!-- Start Personal Information -->
+                                <div class="personalInfo">
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="studentID"
+                                        >Candidate ID</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        value="2122"
+                                        disabled
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">First Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter first name"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Last Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter last name"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.form row1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for=""
+                                        >Educational Qualification</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational qualification"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Phone Number</label>
+                                      <input
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Enter phone number"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Email Address</label>
+                                      <input
+                                        type="email"
+                                        class="form-control"
+                                        placeholder="Enter email address"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.form row2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Gender</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value="">Select gender </option>
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Date of Birth</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                              "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                      <label for="">National ID Number</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter ID national number"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.form row3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Nationality </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Select nationality
+                                        </option>
+                                        <option value="">Egyption</option>
+                                        <option value="">Syrian</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Social Status</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Select social status</option
+                                        >
+                                        <option value="">Engaged</option>
+                                        <option value="">Single</option>
+                                        <option value="">Married</option>
+                                        <option value="">Widow</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Military Service</label>
+                                      <small style="color: #FA3000"
+                                        >(for men only)</small
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Select military service
+                                          status</option
+                                        >
+                                        <option value="">Delayed</option>
+                                        <option value="">Exemption</option>
+                                        <option value="">Ended</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.form row4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for="">Address</label>
+                                      <textarea
+                                        class="form-control"
+                                        rows="3"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /.Personal Information inputs -->
+                                <hr />
+                                <!-- Start Job Skills & Training row -->
+                                <div class="jobSkills-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Job Skills & Training</h2>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >What position are you applying for?
+                                      </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Select position</option
+                                        >
+                                        <option value="">Administrative</option>
+                                        <option value="">Assistance</option>
+                                        <option value="">Teacher</option>
+                                        <option value="">Manager</option>
+                                        <option value=""
+                                          >Information Technology (I.T)</option
+                                        >
+                                        <option value="">Worker</option>
+                                        <option value="">Other</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-3">
+                                      <label for="">Job Title </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Select job title</option
+                                        >
+                                        <option value="">Arabic Teacher</option>
+                                        <option value="">ART Teacher</option>
+                                        <option value=""
+                                          >English Teacher</option
+                                        >
+                                        <option value="">Dutch Teacher</option>
+                                        <option value=""
+                                          >Sciences Teacher</option
+                                        >
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-3">
+                                      <label for="">Years of Experience</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-12">
+                                      <div class="form-group">
+                                        <label for=""
+                                          >Describe your skills:
+                                        </label>
+                                        <textarea
+                                          class="form-control"
+                                          name=""
+                                          id=""
+                                          cols="30"
+                                          rows="10"
+                                        ></textarea>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.End Job Skills row -->
+                                </div>
+                                <!-- /.jobSkills-wrapper -->
+                                <hr />
+
+                                <!-- Start Work Experience wrapper -->
+                                <div class="experience-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Work Experience</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.experience row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Name of Organisation</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of organisation"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Job Title</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter job title"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Educational level</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational level"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                  </div>
+                                  <!-- /.experience row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Date / From</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                            "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Date / To</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                              "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Salary</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Amount"
+                                        />
+                                        <div class="input-group-addon">EGP</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.experience row 3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >Reasons for leaving work</label
+                                      >
+                                      <textarea
+                                        name=""
+                                        class="form-control"
+                                        id=""
+                                        cols="30"
+                                        rows="10"
+                                        placeholder="Enter the reasons for leaving work"
+                                      ></textarea>
+                                    </div>
+                                    <!-- Add Button -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      Add More
+                                    </button>
+                                  </div>
+                                  <!-- /.experience row 4 -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table
+                                        class="table table-condensed table-responsive"
+                                        id="experience-table"
+                                      >
+                                        <thead>
+                                          <tr>
+                                            <th>School Name</th>
+                                            <th>Job Title</th>
+                                            <th>Educational level</th>
+                                            <th>from</th>
+                                            <th>to</th>
+                                            <th>Salary</th>
+                                            <th>Reasons leaving</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>School One</td>
+                                            <td>Title One</td>
+                                            <td>level One</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td>2000 EGP</td>
+                                            <td>Reasons One</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>School Two</td>
+                                            <td>Title Two</td>
+                                            <td>level Two</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td>1500 EGP</td>
+                                            <td>Reasons Two</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.training-table col -->
+                                  </div>
+                                  <!-- /.training-table row -->
+                                </div>
+                                <!-- End Work Experience wrapper -->
+                                <hr />
+
+                                <!-- Start Training or Certifications row  -->
+                                <div class="training-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Training or Certifications</h2>
+                                    </div>
+                                  </div>
+                                  <br />
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >Are you currently engaged or you have
+                                        already taken a training course if the
+                                        answer yes <br />
+                                        Enter the details of the course</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yes</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Training Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter training center name"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Training Center Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter training center name"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Training Language</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter training language"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Date / From</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                                "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Date / To</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                              "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      Add More
+                                    </button>
+                                  </div>
+                                  <br />
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table" id="training-table">
+                                        <thead>
+                                          <tr>
+                                            <th>Training name</th>
+                                            <th>Center name</th>
+                                            <th>Training language</th>
+                                            <th>Date / from</th>
+                                            <th>Date / to</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>Training One</td>
+                                            <td>Center One</td>
+                                            <td>Language One</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Training Two</td>
+                                            <td>Center Two</td>
+                                            <td>Language Two</td>
+                                            <td>22/07/2018</td>
+                                            <td>30/08/2018</td>
+                                            <td><i class="fas fa-edit"></i></td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.training-table col -->
+                                  </div>
+                                  <!-- /.training-table row -->
+                                </div>
+                                <!-- /. End training-wrapper -->
+                                <hr />
+
+                                <!-- Start Educational Achievement wrapper -->
+                                <div class="achievement-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Educational Achievement</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 1 -->
+                                  <div class="row">
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number1.png" alt=""
+                                        /></i>
+                                        Elementary School
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">School Name</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter elementary school name"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Grade</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter grade-degree"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Graduation Year</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter graduation year"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <img src="imgs/number2.png" alt="" />
+                                        Preparatory School
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">School Name</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter school name"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Grade</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter grade-degree"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Graduation Year</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter graduation year"
+                                        />
+                                      </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4">
+                                      <p class="lead">
+                                        <img src="imgs/number3.png" alt="" />
+                                        High School
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">School Name</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter school name"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Grade</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter grade-degree"
+                                        />
+                                      </div>
+                                      <!--  -->
+                                      <div class="form-group">
+                                        <label for="">Graduation Year</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter graduation year"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 2 -->
+                                  <hr />
+                                  <!-- Start  University Education row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number4.png" alt=""
+                                        /></i>
+                                        University Education
+                                      </p>
+                                      <div class="form-group">
+                                        <label for=""
+                                          >Did you get university
+                                          education?</label
+                                        >
+                                        <select
+                                          name=""
+                                          id=""
+                                          class="form-control selectpicker show-tick"
+                                          data-width="100%"
+                                        >
+                                          <option value=""
+                                            >Choose your answer</option
+                                          >
+                                          <option value="">Yes</option>
+                                          <option value="">No</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 3 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Name of university or institute</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of university"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">College Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of college"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Specialization</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of specialization"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Educational Qualification</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational qualification"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 5 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Degree</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational degree"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Graduation Year</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter graduation year"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 6 -->
+                                  <hr />
+                                  <!-- Start Other Degrees row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <i
+                                          ><img src="imgs/number5.png" alt=""
+                                        /></i>
+                                        Other Degrees
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 7-->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Have you got other degrees?</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yes</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Type of Degree</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value=""
+                                          >Bachelor Degree</option
+                                        >
+                                        <option value="">Diploma Degree</option>
+                                        <option value="">Master Degree</option>
+                                        <option value="">PHD Degree</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 8 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Name of university or institute</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of university"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">College Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of college"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 4 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Specialization</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter name of specialization"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Educational Qualification</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational qualification"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 5 -->
+
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Degree</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter educational degree"
+                                      />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Graduation Year</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter graduation year"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.Educational Achievement row 6 -->
+                                </div>
+                                <!-- /.End Educational Achievement wrapper -->
+                                <hr />
+                                <!-- =================================================== -->
+                                <!-- Start computer and language Skills wrapper  -->
+                                <div class="otherSkills-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Computer and Language Skills</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.computer and language Skills row 1 -->
+
+                                  <!-- Start Language Skills row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <img src="imgs/number1.png" alt="" />
+                                        Language Skills
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">Add Language</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter language"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Language Skills row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Rading</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Writing</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Conversation </label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      Add More
+                                    </button>
+                                  </div>
+                                  <!-- /.Language Skills row 3 -->
+                                  <br />
+                                  <!-- Start Language skills table -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table" id="language-table">
+                                        <thead>
+                                          <tr>
+                                            <th>Language</th>
+                                            <th>Rading</th>
+                                            <th>Writing</th>
+                                            <th>Conversation</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>English</td>
+                                            <td>Excellent</td>
+                                            <td>Excellent</td>
+                                            <td>Excellent</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>French</td>
+                                            <td>Good</td>
+                                            <td>Good</td>
+                                            <td>Good</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.language Skills table col -->
+                                  </div>
+                                  <!-- /.Language skills row 4 -->
+                                  <hr />
+                                  <!-- Start Computer Skills row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p class="lead">
+                                        <img src="imgs/number2.png" alt="" />
+                                        Computer Skills
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <!-- /.Computer Skills row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Microsoft Word</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Microsoft Excel</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Microsoft Powerpoint</label>
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Weak</option>
+                                        <option value="">Good</option>
+                                        <option value="">Very Good</option>
+                                        <option value="">Excellent</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!-- /.Computer skills row 2 -->
+                                </div>
+                                <!-- /. End computer and language Skills wrapper -->
+                                <hr />
+                                <!-- =================================================== -->
+
+                                <!-- Stat family Members Informations -->
+                                <div class="family-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Family Members Information</h2>
+                                    </div>
+                                  </div>
+                                  <!-- Start Father row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Father's Qualification</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Father's Job</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <!-- /. End Father row -->
+
+                                  <!-- Start Mother row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Mother's Qualification</label
+                                      >
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Mother's Job</label>
+                                      <input type="text" class="form-control" />
+                                    </div>
+                                  </div>
+                                  <!-- /. End Mother row -->
+                                  <hr />
+                                  <!-- Start married row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Do you are married ?</label>
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yes</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for=""
+                                        >Wife's / Husband's Qualification</label
+                                      >
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="Enter wife's / husband's qualification"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-4">
+                                      <label for=""
+                                        >Wife's / Husband's Job</label
+                                      >
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="Enter Wife's / Husband's Job"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.End married row -->
+                                  <hr />
+                                  <!-- Start Siblings Information row -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-4">
+                                      <label for=""
+                                        >Do you have siblings?</label
+                                      >
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yes</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Siblings Type</label>
+
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                        <option value="">Both</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                      <label for="">Number of siblings</label>
+
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Please enter the number of siblings"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!-- /.End Siblings Information row 1 -->
+
+                                  <!-- Start Sibling Information row 2 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for=""
+                                        >Sibling Qualification</label
+                                      >
+
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Enter sibling qualification"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Sibling Job</label>
+
+                                      <input
+                                        type="text"
+                                        name=""
+                                        class="form-control"
+                                        placeholder="Enter sibling job"
+                                      />
+                                    </div>
+                                    <!--  -->
+                                    <button
+                                      class="btn btn-success btn-search pull-right"
+                                      type="button"
+                                    >
+                                      <i class="glyphicon glyphicon-plus"></i>
+                                      Add More
+                                    </button>
+                                  </div>
+                                  <!-- /. End Sibling Information row 2 -->
+
+                                  <br />
+                                  <!-- / Star Sibling Tabel row -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th>Siblings type</th>
+
+                                            <th>Sibling Qualification</th>
+                                            <th>Sibling Job</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>Male</td>
+
+                                            <td>Qualification type</td>
+                                            <td>Job type</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Female</td>
+
+                                            <td>Qualification type</td>
+                                            <td>Job type</td>
+                                            <td>
+                                              <i class="fas fa-edit"></i>
+                                            </td>
+                                            <td>
+                                              <i class="fas fa-trash"></i>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <!-- /.Sibling Tabel col -->
+                                  </div>
+                                  <!-- /.End Sibling Tabel row -->
+                                </div>
+                                <!-- /.family-wrapper -->
+                                <hr />
+                                <!-- =========================================================== -->
+                                <!-- Start Questions Form  -->
+                                <div class="Questions-wrapper">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <h2>Other Questions</h2>
+                                    </div>
+                                  </div>
+                                  <!-- /.Questions-wrapper row 1 -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >Is there any of your relatives working
+                                        with us?</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yeas</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >If your answer was yes, write his name
+                                        below.</label
+                                      >
+                                      <textarea
+                                        name=""
+                                        class="form-control"
+                                        id=""
+                                        cols="2"
+                                        rows="2"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >If you accept work when you are ready
+                                        to start</label
+                                      >
+                                      <div class="input-group">
+                                        <input
+                                          type="date"
+                                          class="form-control"
+                                        />
+                                        <div class="input-group-addon">
+                                          <i
+                                            class="glyphicon glyphicon-calendar
+                                                "
+                                          ></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >Have you been a student in The Egyptian
+                                        International Schools?</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yeas</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-12">
+                                      <label for=""
+                                        >Is this the first time to apply in the
+                                        Egyptian International Schools?</label
+                                      >
+                                      <select
+                                        name=""
+                                        id=""
+                                        class="form-control selectpicker show-tick"
+                                        data-width="100%"
+                                      >
+                                        <option value=""
+                                          >Choose your answer</option
+                                        >
+                                        <option value="">Yeas</option>
+                                        <option value="">No</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Current Salary</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Amount"
+                                        />
+                                        <div class="input-group-addon">EGP</div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                      <label for="">Expected Salary</label>
+                                      <div class="input-group">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Amount"
+                                        />
+                                        <div class="input-group-addon">EGP</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <label for=""
+                                        >How were you referred to us?</label
+                                      >
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Through our website
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Newspaper Ad
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Facebook
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Twitter
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Friend Suggestion
+                                        </label>
+                                      </div>
+                                      <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" value="" />
+                                          Other
+                                        </label>
+                                      </div>
+                                      <div class="form-group">
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          name=""
+                                          id=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- /.Questions-wrapper row -->
+                                  <hr />
+                                  <!-- ==================================================== -->
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <p>
+                                        I certify that my answers are true and
+                                        complete to the best of my knowledge. If
+                                        this application leads to employment, I
+                                        understand that false or misleading
+                                        information in my application or
+                                        interview may result in my employment
+                                        being terminated.
+                                      </p>
+                                      <div class="form-group">
+                                        <label for="">Signature</label>
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          placeholder="Enter your name"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /. End Questions-wrapper -->
+                                <hr />
+                                <!-- Buttons Form -->
+                                <button type="button" class="btn btn-danger">
+                                  Print Data
+                                </button>
+                                <!--  -->
+                                <button type="submit" class="btn btn-primary">
+                                  Submit Data
+                                </button>
+                              </form>
+                              <!-- /.main form  -->
+                            </div>
+                            <!-- /.col-lg-9 -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.insert New candidate Tap -->
+                        <!-- =================================================== -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.Application-wrapper col -->
+                </div>
+                <!-- /.Application-wrapper row -->
+              </div>
+              <!-- /.Application-wrapper -->
+            </div>
+            <!-- /.col-lg-10 -->
+          </div>
+          <!--/.row-->
+        </div>
+        <!-- /.container  -->
+      </div>
+      <!--/.emmployee-wrapper-->
+    </div>
+    <!-- /.loader-container -->
+    <!-- ======================================================================== -->
+
+    <!-- ---------------------------------Models--------------------------------- -->
+
+    <!-- Add Employee Model  -->
+    <div
+      class="modal fade"
+      id="addEmployee"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              Add Employee
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >First Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >User Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Password <span class="text-danger">*</span></label
+                  >
+                  <input type="password" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Confirm Password <span class="text-danger">*</span></label
+                  >
+                  <input type="password" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Employee ID <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Joining Date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Phone</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Department <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Position <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Position</option>
+                    <option value="">Teacher</option>
+                    <option value="">Supervisor</option>
+                    <option value="">Team Leader</option>
+                    <option value="">Manager</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <!-- /.modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======================================================================== -->
+
+    <!-- Edit Employee Model  -->
+
+    <div
+      class="modal fade editEmployee"
+      id="editEmployee"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              Edit Employee
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >First Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" value="Moustafa" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" value="Nassar" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >User Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" value="M.Nassar" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Email <span class="text-danger">*</span></label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    value="M.Nassar@eis.edu.eg"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Password <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    value="12345600202"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Confirm Password <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    value="12345600202"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Employee ID <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="AD-005"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Joining Date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="+20123456789"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Department <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Position <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Position</option>
+                    <option value="">Teacher</option>
+                    <option value="">Supervisor</option>
+                    <option value="">Team Leader</option>
+                    <option value="">Manager</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.modal-body -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======================================================================== -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".add-more").click(function() {
+          var html = $(".copy").html();
+          $(".after-add-more").after(html);
+        });
+
+        $("body").on("click", ".remove", function() {
+          $(this)
+            .parents(".control-group")
+            .remove();
+        });
+      });
+    </script>
+  </body>
+</html>

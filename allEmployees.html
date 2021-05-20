@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | All Employees</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ================================================================== -->
+
+      <!-- --------------------------Strat Employees wrapper--------------- -->
+      <div class="employees-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="pageHead">
+                <div class="page-header">
+                  <h1>
+                    All Employees
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a href="MainEmployees.html">
+                        Employees Dashboard
+                    </a>
+                  </li>
+                  <li class="active">All Employees</li>
+                </ol>
+              </div>
+              <!-- /.pageHead -->
+              <!---------------- Top Page Alert row --------------------->
+              <div class="alert alert-dismissible alert-info" role="alert">
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <i class="fas fa-exclamation-circle"></i>
+                Well! Total Employees at your Organization are
+                <strong>425 Employee</strong>
+              </div>
+              <!--------------------- Start Search box  ------------------>
+              <div class="search-box">
+                <form action="">
+                  <div class="row">
+                    <div class="form-group col-lg-4">
+                      <label for="">Department</label>
+                      <select
+                        name=""
+                        id=""
+                        class="form-control selectpicker show-tick"
+                        data-width="100%"
+                      >
+                        <option value="">Selcet by Department</option>
+                        <option value="">All</option>
+                        <option value="">Administratives</option>
+                        <option value="">Care Sevices</option>
+                        <option value="">Teachers</option>
+                        <option value="">Information Technology (IT)</option>
+                        <option value="">Others</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-4">
+                      <label for="">Employee ID</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Employee ID"
+                      />
+                    </div>
+                    <div class="form-group col-lg-4">
+                      <label for="">Employee Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Employee Name"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="btn btn-success pull-right btn-search"
+                    >
+                      <i class="fas fa-search"></i> Search
+                    </button>
+                  </div>
+                  <!-- /.row -->
+                </form>
+              </div>
+              <!-- /.Search-box -->
+              <!-- ==================================================== -->
+
+              <!-------------------- Start Employees Cards --------------->
+              <div class="employees-cards">
+                <div class="row">
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#editEmployee"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target="#deleteUser"
+                              ><i class="fas fa-trash"></i> Delete</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <a href="Profile.html">
+                        <img
+                          src="imgs/profile_avatar1.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+
+                        <div class="text-center">
+                          <h3 class="text-center">Moustafa Nassar</h3>
+                          <p>Administrative</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              href="#"
+                              data-toggle="modal"
+                              data-target=".editEmployee"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar2.png"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Sara Samir</h3>
+                          <p>Education Manager</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar3.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Noha Mohamed</h3>
+                          <p>Software Developer</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar4.png"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="">Ahmed Ali</h3>
+                          <p>Arabic Teacher</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+                <div class="row">
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="label label-success">New</span>
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar5.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Karam Ahmed</h3>
+                          <p>Germany Teacher</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="label label-success">New</span>
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar6.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Mohamed Samir</h3>
+                          <p>English Teacher</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="label label-success">New</span>
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar7.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Heba Moustafa</h3>
+                          <p>ART Teacher</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="col-lg-3 card-block">
+                    <div class="well">
+                      <div class="dropdown pull-right">
+                        <a
+                          href=""
+                          class="dropdown-toggle"
+                          data-toggle="dropdown"
+                        >
+                          <i class="fas fa-ellipsis-v "></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a href="#"
+                              ><i class="fas fa-pencil-alt"></i> Edit</a
+                            >
+                          </li>
+                          <li>
+                            <a href="#"><i class="fas fa-trash"></i> Delete</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="label label-success">New</span>
+                      <a href="">
+                        <img
+                          src="imgs/profile_avatar8.jpg"
+                          class="img-circle img-responsive"
+                          alt=""
+                        />
+                        <div class="text-center">
+                          <h3 class="text-center">Kamal Nassar</h3>
+                          <p>Administrative</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Start pagination-wrapper -->
+                <div class="pagination-wrapper">
+                  <div class="row">
+                    <div class="col-lg-12 text-right">
+                      <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                          <li class="disabled">
+                            <a href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="active"><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                          <li>
+                            <a href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.pagination-wrapper -->
+              </div>
+              <!-- /.employees-cards -->
+            </div>
+            <!-- /.col-lg-9 -->
+          </div>
+          <!--/.row-->
+        </div>
+      </div>
+      <!--/.emmployee-wrapper-->
+    </div>
+    <!-- /.loader-container -->
+    <!-- ======================================================================== -->
+
+    <!-- ---------------------------------Models--------------------------------- -->
+
+    <!-- Add Employee Model  -->
+    <div
+      class="modal fade"
+      id="addEmployee"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              Add Employee
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >First Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >User Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Password <span class="text-danger">*</span></label
+                  >
+                  <input type="password" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Confirm Password <span class="text-danger">*</span></label
+                  >
+                  <input type="password" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Employee ID <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Joining Date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Phone</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Department <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Position <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Position</option>
+                    <option value="">Teacher</option>
+                    <option value="">Supervisor</option>
+                    <option value="">Team Leader</option>
+                    <option value="">Manager</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+          <!-- /.modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======================================================================== -->
+
+    <!-- Edit Employee Model  -->
+
+    <div
+      class="modal fade editEmployee"
+      id="editEmployee"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              Edit Employee
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >First Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" value="Moustafa" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Last Name</label>
+                  <input type="text" class="form-control" value="Nassar" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >User Name <span class="text-danger">*</span></label
+                  >
+                  <input type="text" class="form-control" value="M.Nassar" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Email <span class="text-danger">*</span></label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    value="M.Nassar@eis.edu.eg"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Password <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    value="12345600202"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Confirm Password <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    value="12345600202"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Employee ID <span class="text-danger">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="AD-005"
+                    disabled
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Joining Date <span class="text-danger">*</span></label
+                  >
+                  <div class="input-group">
+                    <input type="date" class="form-control" />
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="+20123456789"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="">Address</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Department <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Department</option>
+                    <option value="">Administratives</option>
+                    <option value="">Care Sevices</option>
+                    <option value="">Teachers</option>
+                    <option value="">Information Technology (IT)</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for=""
+                    >Position <span class="text-danger">*</span></label
+                  >
+                  <select
+                    name=""
+                    id=""
+                    class="form-control selectpicker show-tick"
+                    data-width="100%"
+                  >
+                    <option value="">Select Position</option>
+                    <option value="">Teacher</option>
+                    <option value="">Supervisor</option>
+                    <option value="">Team Leader</option>
+                    <option value="">Manager</option>
+                    <option value="">Others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.modal-body -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======================================================================== -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

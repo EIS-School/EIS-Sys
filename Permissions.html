@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Permissions</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ====================================================================== -->
+
+      <!-- ------------------------------Permissions-wrapper------------------------ -->
+      <div class="permissions-wrapper">
+        <div class="container">
+          <div class="pageHead">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="page-header">
+                  <h1>
+                    Permissions
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                  </li>
+                  <li class="active">Permissions</li>
+                </ol>
+              </div>
+              <!-- /.pageHead col -->
+            </div>
+            <!-- /.pageHead row -->
+          </div>
+          <!-- /.pageHead -->
+          <!-- ================================================================= -->
+
+          <!-- ------------------------permissions-content---------------------- -->
+          <div class="permissions-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a
+                        href="#permitRequest"
+                        aria-controls="permitRequest"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-user-clock fa-2x"></i> <br />
+                        Permissions Request</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#permitInsert"
+                        aria-controls="permitInsert"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-pencil-alt fa-2x"></i><br />
+                        Insert Permissions</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#permitEdit"
+                        aria-controls="permitEdit"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-user-edit fa-2x"></i> <br />
+                        Edit Permissions</a
+                      >
+                    </li>
+                  </ul>
+
+                  <!-- --------------------Tab panes ----------------------->
+                  <div class="tab-content">
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade in active"
+                      id="permitRequest"
+                    >
+                      <!-- ---------------Start permissions list Tap---------- -->
+                      <div class="permissions-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="example"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Permission type</th>
+                                  <th>Permission date</th>
+                                  <th>Time/ from</th>
+                                  <th>Time / to</th>
+                                  <th>Status</th>
+
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Ali al-Basel</td>
+                                  <td>Accountant</td>
+                                  <td>Mission</td>
+                                  <td>22/07/2019</td>
+                                  <td>02:00 PM</td>
+                                  <td>04:00 PM</td>
+                                  <td>
+                                    <span class="label label-warning"
+                                      >Pending</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-bars"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".actionModal"
+                                      title="View details"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Basma Ibrahim</td>
+                                  <td>Stage Manager</td>
+                                  <td>Permission</td>
+                                  <td>22/07/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>02:00 Pm</td>
+                                  <td>
+                                    <span class="label label-warning"
+                                      >Pending</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-bars"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".actionModal"
+                                      title="View details"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Moustafa Nassar</td>
+                                  <td>Administrative</td>
+                                  <td>Permission</td>
+                                  <td>02/07/2019</td>
+                                  <td>02:00 PM</td>
+                                  <td>04:00 PM</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+
+                                  <td class="text-danger">Refused</td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Zinab Ahmed</td>
+                                  <td>Computer Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Accepted</span
+                                    >
+                                  </td>
+
+                                  <td class="text-success">Accepted</td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Heba Ahmed</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>10:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Accepted</span
+                                    >
+                                  </td>
+
+                                  <td class="text-success">Accepted</td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Mona Mohammed</td>
+                                  <td>English Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+                                 
+                                  <td class="text-danger">Refused</td>
+                                </tr>
+                              </tbody>
+
+                              <tfoot>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Permission type</th>
+                                  <th>Permission date</th>
+                                  <th>Time/ from</th>
+                                  <th>Time / to</th>
+                                  <th>Status</th>
+                                  
+                                  <th>Action</th>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Permission-table -->
+                    </div>
+                    <!-- /.Permission List Tap -->
+                    <!-- ============================================== -->
+
+                    <!-- ---------------Start insert Permissions Tap---------- -->
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade"
+                      id="permitInsert"
+                    >
+                      <form action="">
+                        <div class="row">
+                          <div class="form-group col-lg-6">
+                            <label for="">Department</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Selcet by Department</option>
+                              <option value="">All Employees</option>
+                              <option value="">Administratives</option>
+                              <option value="">Care Sevices</option>
+                              <option value="">Teachers</option>
+                              <option value=""
+                                >Information Technology (IT)</option
+                              >
+                              <option value="">Others</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Employee name</label>
+                            <div id="the-basics">
+                              <input
+                                type="text"
+                                class="form-control typeahead"
+                                placeholder="Enter employee name"
+                              />
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-4">
+                            <label for="">Permission Date</label>
+                            <input type="date" class="form-control" />
+                          </div>
+                          <div class="form-group col-lg-4">
+                            <label for="">Permission type</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Selcet permission type</option>
+                              <option value="">Permission</option>
+                              <option value="">Mission</option>
+                              <option value="">Exception Permission</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+
+                          <div class="form-group col-lg-4">
+                            <label for="">Number of hours</label>
+                            <input type="number" class="form-control" max="4" />
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Time / from</label>
+                            <div class="input-group">
+                              <input type="time" class="form-control" />
+                              <div class="input-group-addon">
+                                <i class="far fa-clock"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Time / to</label>
+                            <div class="input-group">
+                              <input type="time" class="form-control" />
+                              <div class="input-group-addon">
+                                <i class="far fa-clock"></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-12">
+                            <label for="">Reason</label>
+                            <textarea
+                              class="form-control"
+                              name=""
+                              id=""
+                              cols="30"
+                              rows="10"
+                            ></textarea>
+                          </div>
+                          <div class="form-group col-lg-12">
+                            <button
+                              type="submit"
+                              class="btn btn-primary btn-lg"
+                            >
+                              Submit Permission
+                            </button>
+                          </div>
+                        </div>
+                        <!-- /.row-->
+                      </form>
+                    </div>
+                    <!-- /.insert Permissions Tap -->
+                    <!-- =================================================== -->
+
+                    <!-- ---------------Start Permissions Edit Tap---------- -->
+                    <div role="tabpanel" class="tab-pane fade" id="permitEdit">
+                      <!-- ---------------------Search-box----------------------- -->
+                      <div class="search-box">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <form action="">
+                              <div class="row">
+                                <div class="form-group col-lg-4">
+                                  <label for="">Department</label>
+                                  <select
+                                    name=""
+                                    id=""
+                                    class="form-control selectpicker show-tick"
+                                    data-width="100%"
+                                  >
+                                    <option value=""
+                                      >Selcet by Department</option
+                                    >
+                                    <option value="">All Employees</option>
+                                    <option value="">Administratives</option>
+                                    <option value="">Care Sevices</option>
+                                    <option value="">Teachers</option>
+                                    <option value=""
+                                      >Information Technology (IT)</option
+                                    >
+                                    <option value="">Others</option>
+                                  </select>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-4">
+                                  <label for="">Employee name</label>
+                                  <div id="the-basics">
+                                    <input
+                                      type="text"
+                                      class="form-control typeahead"
+                                      placeholder="Enter employee name"
+                                    />
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <div class="form-group col-lg-4">
+                                  <label for="">Date</label>
+                                  <div class="input-group">
+                                    <input type="date" class="form-control" />
+                                    <div class="input-group-addon">
+                                      <i
+                                        class="
+                                            glyphicon glyphicon-calendar"
+                                      ></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                                <button
+                                  type="submit"
+                                  class="btn btn-success btn-search pull-right"
+                                >
+                                  <i class="fas fa-search"></i> Search
+                                </button>
+                              </div>
+                              <!-- /.row -->
+                            </form>
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.Search-box -->
+                      <!-- ============================================================ -->
+
+                      <!-- ------------------ Edit Permissions Table---------- -->
+                      <div class="permitEdit-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="permitEdit-table"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Permission type</th>
+                                  <th>Permission date</th>
+                                  <th>Time/ from</th>
+                                  <th>Time / to</th>
+                                  <th>Status</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Ali al-Basel</td>
+                                  <td>Accountant</td>
+                                  <td>Mission</td>
+                                  <td>22/07/2019</td>
+                                  <td>02:00 PM</td>
+                                  <td>04:00 PM</td>
+                                  <td>
+                                    <span class="label label-warning"
+                                      >Pending</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Basma Ibrahim</td>
+                                  <td>Stage Manager</td>
+                                  <td>Permission</td>
+                                  <td>22/07/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>02:00 Pm</td>
+                                  <td>
+                                    <span class="label label-warning"
+                                      >Pending</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Moustafa Nassar</td>
+                                  <td>Administrative</td>
+                                  <td>Permission</td>
+                                  <td>02/07/2019</td>
+                                  <td>02:00 PM</td>
+                                  <td>04:00 PM</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Zinab Ahmed</td>
+                                  <td>Computer Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Accepted</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Heba Ahmed</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>10:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Accepted</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Mona Mohammed</td>
+                                  <td>English Teacher</td>
+                                  <td>Permission</td>
+                                  <td>02/06/2019</td>
+                                  <td>09:00 AM</td>
+                                  <td>11:00 Pm</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+
+                              <tfoot>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Permission type</th>
+                                  <th>Permission date</th>
+                                  <th>Time/ from</th>
+                                  <th>Time / to</th>
+                                  <th>Status</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Permissions Table -->
+                    </div>
+                    <!-- /. Edit Permissions Table Tap -->
+                    <!-- =================================================== -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.button-box -->
+          <!-- ============================================================ -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.Permission-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+    <!-- ============================================================ -->
+
+    <!-- --------------------------Models---------------------------- -->
+
+    <!-- Action Modal -->
+    <div
+      class="modal fade actionModal"
+      id=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Permission Details
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <label for="">Employee ID:</label>
+                  <span>MDD-2255</span>
+                </div>
+                <div>
+                  <label for="">Employee Name:</label>
+                  <span class="">Ali al-Basel </span>
+                </div>
+                <div>
+                  <label for="">Position:</label>
+                  <span class="">Accountant </span>
+                </div>
+                <div>
+                  <label for="">Permission Type:</label>
+                  <span class="">Permission</span>
+                </div>
+                <div>
+                  <label for="">Permission Date:</label>
+                  <span>02/10/2019</span>
+                </div>
+                <div>
+                  <label for="">Permission Time:</label>
+                  <span
+                    ><strong>From</strong> 02:00 PM <strong>To</strong> 04:00 PM
+                  </span>
+                </div>
+                <div>
+                  <label for="">Reason:</label>
+                  <span>Personal Reason</span>
+                </div>
+                <div>
+                  <label for="">Submitted by:</label>
+                  <span>Ali al-Basel</span>
+                </div>
+                <form action="">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <label for="">Status:</label>
+                    </div>
+                    <div class="col-lg-8">
+                      <label for="optionsRadios1" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios1"
+                          value="option1"
+                          checked
+                        />
+                        Pending
+                      </label>
+                      <label for="optionsRadios2" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios2"
+                          value="option2"
+                        />
+                        Approved
+                      </label>
+                      <label for="optionsRadios3" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios3"
+                          value="option3"
+                        />
+                        Refused
+                      </label>
+                    </div>
+                    <div class="col-lg-12">
+                      <label for="">Note:</label>
+                      <textarea
+                        class="form-control"
+                        name=""
+                        id=""
+                        cols="6"
+                        placeholder="if you need to write a note"
+                      ></textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.model-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save Data
+            </button>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================= -->
+
+    <!------------------------ Edit Model ----------------------->
+    <div
+      class="modal fade editModal"
+      id=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editModal"
+    >
+      <div class="container">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="exampleModalLabel">
+                Edit Permission
+              </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+              <form action="" class="form">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="">Permission type</label>
+                      <select
+                        name=""
+                        id=""
+                        class="form-control selectpicker show-tick"
+                        data-width="100%"
+                      >
+                        <option value="">Selcet permission type</option>
+                        <option value="">Permission</option>
+                        <option value="">Mission</option>
+                        <option value="">Exception Permission</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label for="">Time / from</label>
+                      <div class="input-group">
+                        <input type="time" class="form-control" />
+                        <div class="input-group-addon">
+                          <i class="far fa-clock"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label for="">Time / to</label>
+                      <div class="input-group">
+                        <input type="time" class="form-control" />
+                        <div class="input-group-addon">
+                          <i class="far fa-clock"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                </div>
+                <!-- /.row -->
+              </form>
+            </div>
+            <!-- /.model-body -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save &amp; Update
+              </button>
+            </div>
+            <!-- /.modal-footer -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================= -->
+
+    <!------------------------ Delete modal ----------------------->
+    <div id="" class="modal fade deleteModel">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="fas fa-trash"></i>
+            </div>
+            <h4 class="modal-title">Are you sure?</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Do you really want to delete these records?<br />This process can
+              not be undone.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================================================================= -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/app.js"></script>
+    <!-- ============================================================================= -->
+  </body>
+</html>

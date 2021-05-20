@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Payroll</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ====================================================================== -->
+
+      <!-- ------------------------------salaries-wrapper------------------------ -->
+      <div class="payroll-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="page-header">
+                <h1>
+                  Payroll
+                </h1>
+              </div>
+              <ol class="breadcrumb">
+                <li>
+                  <a href="HRMDashboard(Admin).html">
+                    Human Resources Dashboard
+                  </a>
+                </li>
+                <li class="active">Payroll</li>
+              </ol>
+              <!-- ======================================================= -->
+
+              <!-- ---------------------Search-box----------------------- -->
+              <div class="search-box">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <form action="">
+                      <div class="row">
+                        <div class="form-group col-lg-4">
+                          <label for="">Selcet Department</label>
+                          <select
+                            name=""
+                            id=""
+                            class="form-control selectpicker show-tick"
+                            data-width="100%"
+                          >
+                            <option value="">Selcet by Department</option>
+                            <option value="">All</option>
+                            <option value="">Administratives</option>
+                            <option value="">Care Sevices</option>
+                            <option value="">Teachers</option>
+                            <option value=""
+                              >Information Technology (IT)</option
+                            >
+                            <option value="">Others</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-lg-4">
+                          <label for="">Date From</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                        <div class="form-group col-lg-4">
+                          <label for="">Date To</label>
+                          <input type="date" class="form-control" />
+                        </div>
+                        <button
+                          type="submit"
+                          class="btn btn-success btn-search pull-right"
+                        >
+                          <i class="fas fa-search"></i> Search
+                        </button>
+                      </div>
+                      <!-- /.row -->
+                    </form>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.Search-box -->
+              <!-- ============================================================ -->
+
+              <!-- ---------------------salaries-table------------------------- -->
+              <div class="salaries-table">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <table
+                      id="example"
+                      class="table display"
+                      style="width:100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Position</th>
+                          <th>Type</th>
+                          <th>Salary</th>
+                          <th>Absences</th>
+                          <th>Vacations</th>
+                          <th>Loans</th>
+                          <th>Insurance</th>
+                          <th>Bus</th>
+                          <th>Benefits</th>
+                          <th>Overtime</th>
+                          <th>Sanctions</th>
+                          <th>Net Salary</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Ali al-Basel</td>
+                          <td>Accountant</td>
+                          <td>ATM</td>
+                          <td>3,000 EGP</td>
+                          <td>04 days</td>
+                          <td>02 days</td>
+                          <td>500 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>100 EGP</td>
+                          <td>01 day</td>
+                          <td>02 days</td>
+                          <td>2,325 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Saber Moustafa</td>
+                          <td>System Administrator</td>
+                          <td>ATM</td>
+                          <td>4,000 EGP</td>
+                          <td>05 days</td>
+                          <td>03 days</td>
+                          <td>250 EGP</td>
+                          <td>250 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>1 day</td>
+                          <td>04 days</td>
+                          <td>2,000 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Moustafa Nassar</td>
+                          <td>Administrative</td>
+                          <td>ATM</td>
+                          <td>5,000 EGP</td>
+                          <td>0 days</td>
+                          <td>0 days</td>
+                          <td>250 EGP</td>
+                          <td>250 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 day</td>
+                          <td>01 days</td>
+                          <td>4,000 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Sara Samir</td>
+                          <td>Software Engineer</td>
+                          <td>ATM</td>
+                          <td>3,000 EGP</td>
+                          <td>04 days</td>
+                          <td>02 days</td>
+                          <td>500 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>100 EGP</td>
+                          <td>01 day</td>
+                          <td>02 days</td>
+                          <td>2,325 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Noha Mohammed</td>
+                          <td>Software Engineer</td>
+                          <td>ATM</td>
+                          <td>3,000 EGP</td>
+                          <td>04 days</td>
+                          <td>02 days</td>
+                          <td>500 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>100 EGP</td>
+                          <td>01 day</td>
+                          <td>02 days</td>
+                          <td>2,325 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Zakria Mohammed</td>
+                          <td>Accountant Manager</td>
+                          <td>Cash</td>
+                          <td>5,500 EGP</td>
+                          <td>0 days</td>
+                          <td>0 days</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 day</td>
+                          <td>0 days</td>
+                          <td>5,500 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Ahmed Ali</td>
+                          <td>Arabic Teacher</td>
+                          <td>Cash</td>
+                          <td>1,000 EGP</td>
+                          <td>01 days</td>
+                          <td>06 days</td>
+                          <td>100 EGP</td>
+                          <td>0 EGP</td>
+                          <td>150 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 day</td>
+                          <td>06 days</td>
+                          <td>600 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Reham Mohammed</td>
+                          <td>Accountant</td>
+                          <td>ATM</td>
+                          <td>3,000 EGP</td>
+                          <td>04 days</td>
+                          <td>02 days</td>
+                          <td>500 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>100 EGP</td>
+                          <td>01 day</td>
+                          <td>02 days</td>
+                          <td>2,325 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Belal Fawzy</td>
+                          <td>English Teacher</td>
+                          <td>ATM</td>
+                          <td>1,200 EGP</td>
+                          <td>06 days</td>
+                          <td>02 days</td>
+                          <td>0 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 day</td>
+                          <td>04 days</td>
+                          <td>988 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Donia Samir</td>
+                          <td>Music Teacher</td>
+                          <td>Cash</td>
+                          <td>1,000 EGP</td>
+                          <td>0 days</td>
+                          <td>0 days</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 EGP</td>
+                          <td>0 day</td>
+                          <td>0 days</td>
+                          <td>1,000 EGP</td>
+                        </tr>
+                        <tr>
+                          <td>Emam Mohsen</td>
+                          <td>P.E Teacher</td>
+                          <td>Cash</td>
+                          <td>850 EGP</td>
+                          <td>04 days</td>
+                          <td>02 days</td>
+                          <td>250 EGP</td>
+                          <td>250 EGP</td>
+                          <td>150 EGP</td>
+                          <td>100 EGP</td>
+                          <td>01 day</td>
+                          <td>02 days</td>
+                          <td>400 EGP</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Position</th>
+                          <th>Type</th>
+                          <th>Salary</th>
+                          <th>Absences</th>
+                          <th>Vacations</th>
+                          <th>Loans</th>
+                          <th>Insurance</th>
+                          <th>Bus</th>
+                          <th>Benefits</th>
+                          <th>Overtime</th>
+                          <th>Sanctions</th>
+                          <th>Net Salary</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.salaries-table -->
+              <!-- =================================================== -->
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.main-row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.salaries-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+    <!-- ============================================================ -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/typeahead.jquery.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

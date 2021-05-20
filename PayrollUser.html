@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Payroll(User)</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      .page-header h1 {
+        margin-left: 5px;
+        font-size: 3.9rem;
+        font-weight: 800;
+        line-height: 1.3;
+      }
+
+      .jumbotron {
+        background-color: #fff;
+        border: 1px solid #ddd;
+      }
+
+      .well {
+        background-color: #fff;
+        color: #333;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .half-rule {
+        margin-left: 0;
+        text-align: left;
+        width: 80%;
+        border: 0.1rem solid #ffb43e;
+      }
+
+      .progress {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        background: none;
+        margin: 0 auto;
+        box-shadow: none;
+        position: relative;
+      }
+      .progress:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 7px solid #eee;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .progress > span {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+      }
+      .progress .progress-left {
+        left: 0;
+      }
+      .progress .progress-bar {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border-width: 7px;
+        border-style: solid;
+        position: absolute;
+        top: 0;
+        border-color: #ffb43e;
+      }
+      .progress .progress-left .progress-bar {
+        left: 100%;
+        border-top-right-radius: 75px;
+        border-bottom-right-radius: 75px;
+        border-left: 0;
+        -webkit-transform-origin: center left;
+        transform-origin: center left;
+      }
+      .progress .progress-right {
+        right: 0;
+      }
+      .progress .progress-right .progress-bar {
+        left: -100%;
+        border-top-left-radius: 75px;
+        border-bottom-left-radius: 75px;
+        border-right: 0;
+        -webkit-transform-origin: center right;
+        transform-origin: center right;
+      }
+      .progress .progress-value {
+        display: flex;
+        border-radius: 50%;
+        font-size: 36px;
+        text-align: center;
+        line-height: 20px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        font-weight: 300;
+      }
+      .progress .progress-value div {
+        margin-top: 10px;
+      }
+      .progress .progress-value span {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .progress[data-percentage="10"] .progress-right .progress-bar {
+        animation: loading-1 1.5s linear forwards;
+      }
+      .progress[data-percentage="10"] .progress-left .progress-bar {
+        animation: 0;
+      }
+
+      .progress[data-percentage="20"] .progress-right .progress-bar {
+        animation: loading-2 1.5s linear forwards;
+      }
+      .progress[data-percentage="20"] .progress-left .progress-bar {
+        animation: 0;
+      }
+
+      .progress[data-percentage="30"] .progress-right .progress-bar {
+        animation: loading-3 1.5s linear forwards;
+      }
+      .progress[data-percentage="30"] .progress-left .progress-bar {
+        animation: 0;
+      }
+
+      .progress[data-percentage="40"] .progress-right .progress-bar {
+        animation: loading-4 1.5s linear forwards;
+      }
+      .progress[data-percentage="40"] .progress-left .progress-bar {
+        animation: 0;
+      }
+
+      .progress[data-percentage="50"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="50"] .progress-left .progress-bar {
+        animation: 0;
+      }
+
+      .progress[data-percentage="60"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="60"] .progress-left .progress-bar {
+        animation: loading-1 1.5s linear forwards 1.5s;
+      }
+
+      .progress[data-percentage="70"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="70"] .progress-left .progress-bar {
+        animation: loading-2 1.5s linear forwards 1.5s;
+      }
+
+      .progress[data-percentage="80"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="80"] .progress-left .progress-bar {
+        animation: loading-3 1.5s linear forwards 1.5s;
+      }
+
+      .progress[data-percentage="90"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="90"] .progress-left .progress-bar {
+        animation: loading-4 1.5s linear forwards 1.5s;
+      }
+
+      .progress[data-percentage="100"] .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+      .progress[data-percentage="100"] .progress-left .progress-bar {
+        animation: loading-5 1.5s linear forwards 1.5s;
+      }
+
+      @keyframes loading-1 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(36);
+          transform: rotate(36deg);
+        }
+      }
+      @keyframes loading-2 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(72);
+          transform: rotate(72deg);
+        }
+      }
+      @keyframes loading-3 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(108);
+          transform: rotate(108deg);
+        }
+      }
+      @keyframes loading-4 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(144);
+          transform: rotate(144deg);
+        }
+      }
+      @keyframes loading-5 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(180);
+          transform: rotate(180deg);
+        }
+      }
+      .progress {
+        margin-bottom: 1em;
+      }
+
+      .search-box {
+        padding: 20px;
+        background-color: #fff;
+        margin: 30px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group input,
+      .form-group select {
+        min-width: 100%;
+        width: 100%;
+      }
+
+      .panel {
+        margin-bottom: 0;
+      }
+
+      table {
+        table-layout: fixed;
+      }
+
+      table,
+      thead,
+      tr,
+      tbody,
+      th,
+      td {
+        text-align: center;
+      }
+
+      td {
+        line-height: 2.5;
+      }
+
+      .table th {
+        font-weight: 500;
+      }
+
+      .table td span {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 2.5;
+        border-radius: 3px;
+      }
+
+      .icon-igroup a i {
+        display: inline-block;
+        padding: 5px 3px;
+        margin: auto;
+        font-size: 100%;
+      }
+
+      .complainte-wrapper .well {
+        margin-top: 20px;
+      }
+
+      .payslip-table table,
+      .payslip-table tbody,
+      .payslip-table tr,
+      .payslip-table td {
+        text-align: left;
+      }
+
+      .payslip-table td span {
+        padding: 0;
+        font-size: 15px;
+        line-height: 22px;
+      }
+    </style>
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  Sara Samir <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="UserProfile(Limted User).html"
+                      ><i class="fas fa-user-circle"></i> My Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- 
+          ======================================================================
+          ======================================================================
+       -->
+      <div class="payroll-wrapper">
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="sidenav">
+              <h3 class="">
+                <i class="far fa-user-circle"></i> Welcome, Sara Samir
+              </h3>
+              <ul class="nav nav-pills nav-stacked">
+                <li class="">
+                  <a href=""><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                  <a href="UserProfile(Limted User).html"
+                    ><i class="fas fa-user-circle"></i> My Profile</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="far fa-bell"></i> Notification </a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="far fa-envelope"></i> Messages
+                    <span class="badge" style="background-color:#ec3131;"
+                      >42</span
+                    ></a
+                  >
+                </li>
+                <li class="active">
+                  <a href="#"><i class="fas fa-wallet"></i> Payroll</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-bullhorn"></i> Events</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-users-cog"></i> Settings</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.end sidenav -->
+          </div>
+          <!-- /.col-lg-2 -->
+          <!-- 
+              =============================================================
+              =============================================================
+           -->
+          <div class="col-lg-10">
+            <div class="payroll-content">
+              <div class="container-fluid">
+                <div class="page-header">
+                  <img
+                    src="../eis-CRM/imgs/wallet.png"
+                    class="pull-left"
+                    alt=""
+                  />
+                  <h1 class="pull-left">
+                    Payroll
+                  </h1>
+                  <div class="clearfix"></div>
+                </div>
+                <!-- 
+                  =======================================================
+                                  payroll jumbotron
+                  =======================================================
+                 -->
+                <div class="jumbotron">
+                  <div class="container">
+                    <div class="row">
+                      <!-- /Start Payroll-text -->
+                      <div class="Payroll-text col-lg-6">
+                        <!-- Payroll-top -->
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <p>Basic Salary</p>
+                            <h2>
+                              3000 <sup><small>EGP</small></sup>
+                            </h2>
+                          </div>
+                          <div class="col-lg-6">
+                            <p>Insurance</p>
+                            <h2>
+                              250 <sup><small>EGP</small></sup>
+                            </h2>
+                          </div>
+                        </div>
+                        <!-- /.row-top -->
+                        <hr class="half-rule" />
+                        <!-- Payroll-bottom -->
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <p>Loans</p>
+                            <h2>
+                              250 <sup><small>EGP</small></sup>
+                            </h2>
+                          </div>
+                          <div class="col-lg-6">
+                            <p>Net Salary</p>
+                            <h2>
+                              2698 <sup><small>EGP</small></sup>
+                            </h2>
+                          </div>
+                        </div>
+                        <!-- /.row-bottom -->
+                      </div>
+                      <!-- /.End Payroll-text -->
+
+                      <!-- Start Payroll Sta -->
+                      <div class="payroll-statice col-lg-6">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="progress" data-percentage="80">
+                              <span class="progress-left">
+                                <span class="progress-bar"></span>
+                              </span>
+                              <span class="progress-right">
+                                <span class="progress-bar"></span>
+                              </span>
+                              <div class="progress-value">
+                                <div>
+                                  80%<br />
+                                  <span>Attendance</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--  -->
+                          <div class="col-lg-6">
+                            <div class="progress" data-percentage="60">
+                              <span class="progress-left">
+                                <span class="progress-bar"></span>
+                              </span>
+                              <span class="progress-right">
+                                <span class="progress-bar"></span>
+                              </span>
+                              <div class="progress-value">
+                                <div>
+                                  60%<br />
+                                  <span>Absence</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.payroll-static -->
+                    </div>
+                    <!-- /.jumbotron row -->
+                  </div>
+                  <!-- /.container -->
+                </div>
+                <!-- /.jumbotron -->
+                <!-- 
+                    =========================================================
+                                        Search Form Box
+                    =========================================================
+                 -->
+                <div class="search-box">
+                  <div class="row">
+                    <form action="">
+                      <div class="form-group col-lg-5">
+                        <label for="">Select Month</label>
+                        <select
+                          name=""
+                          id=""
+                          class="form-control selectpicker show-tick"
+                          data-width="100%"
+                        >
+                          <option value="">Select Month</option>
+                          <option value="">January</option>
+                          <option value="">February</option>
+                          <option value="">March</option>
+                          <option value="">April</option>
+                          <option value="">May</option>
+                          <option value="">June</option>
+                          <option value="">July</option>
+                          <option value="">August</option>
+                          <option value="">September</option>
+                          <option value="">October</option>
+                          <option value="">November</option>
+                          <option value="">December</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-lg-5">
+                        <label for="">Select Year</label>
+                        <select
+                          name=""
+                          id=""
+                          class="form-control selectpicker show-tick"
+                          data-width="100%"
+                        >
+                          <option value="">Select Year</option>
+                          <option value="">2019</option>
+                          <option value="">2018</option>
+                          <option value="">2017</option>
+                          <option value="">2016</option>
+                          <option value="">2015</option>
+                        </select>
+                      </div>
+                      <br />
+                      <div class="col-lg-2">
+                        <button type="submit" class="btn btn-success">
+                          <i class="fas fa-search"></i> Search
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.search-box -->
+                <!-- 
+                    ========================================================
+                    ========================================================
+                 -->
+                <div class="well">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                          <div class="icon-igroup pull-left">
+                            <a href="#" title="copy">
+                              <i class="fas fa-copy"></i>
+                            </a>
+                            <!--  -->
+                            <a href="#" title="excel">
+                              <i class="far fa-file-excel"></i>
+                            </a>
+                            <!--  -->
+                            <a href="" title="pdf">
+                              <i class="far fa-file-pdf"></i>
+                            </a>
+                            <!--  -->
+                            <a href="" title="print">
+                              <i class="fas fa-print"></i>
+                            </a>
+                          </div>
+                          <!-- /.icon-igroup -->
+                          <div class="pull-right">
+                            <span class="label label-primary">May 2019</span>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- /.panel-heading -->
+
+                        <!--  Start table-wrapper-->
+                        <div class="table-wrapper table-responsive">
+                          <table class="table table-condensed table-hover">
+                            <tr class="">
+                              <th>Basic Salary</th>
+                              <th>Total Absent</th>
+                              <th>Total Vactions</th>
+                              <th>Insurance</th>
+                              <th>Bus Fee</th>
+                              <th>Loans</th>
+                              <th>Late Days</th>
+                              <th>Overtime</th>
+                              <th>Net Salary</th>
+                              <th>Status</th>
+                              <th>Payslip</th>
+                            </tr>
+                            <tr>
+                              <td>3000 EGP</td>
+                              <td>4 Days</td>
+                              <td>15 Days</td>
+                              <td>250 EGP</td>
+                              <td>150 EGP</td>
+                              <td>250 EGP</td>
+                              <td>4 Days</td>
+                              <td>2 Days</td>
+                              <td>2698 EGP</td>
+                              <td>
+                                <span class="label label-success">Paid</span>
+                              </td>
+                              <td>
+                                <button
+                                  type="button"
+                                  class="btn btn-warning btn-sm"
+                                  data-toggle="modal"
+                                  data-target="#payslipModal"
+                                >
+                                  Payslip
+                                </button>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                      <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.well -->
+                <!-- 
+                  ==============================================================
+                                      complainte-wrapper
+                  ==============================================================
+                 -->
+                <div class="complainte-wrapper row">
+                  <div class="col-lg-12">
+                    <div class="well">
+                      <div class="text-center" style="padding: 20px;">
+                        <h2>Do you have a complaint ?</h2>
+                        <p>
+                          if you have a problem or question you can <br />
+                          click on the button below and submit a new complaint.
+                        </p>
+                        <button
+                          type="button"
+                          class="btn btn-danger btn-lg"
+                          data-toggle="modal"
+                          data-target="#complaintModal"
+                        >
+                          Insert New Complainte
+                        </button>
+                      </div>
+                    </div>
+                    <!-- /.well -->
+                  </div>
+                  <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.complainte-wrapper -->
+              </div>
+              <!-- /.container-fluid -->
+            </div>
+            <!-- /.payroll-content -->
+          </div>
+          <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.payroll-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+
+    <!--
+    =============================================
+                  MODELS
+    ============================================= 
+     -->
+
+    <!-- Payslip Models -->
+    <div
+      class="modal fade"
+      id="payslipModal"
+      class=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Payslip
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="icon-igroup pull-left">
+                  <a href="#" title="copy">
+                    <i class="fas fa-copy"></i>
+                  </a>
+                  <!--  -->
+                  <a href="#" title="excel">
+                    <i class="far fa-file-excel"></i>
+                  </a>
+                  <!--  -->
+                  <a href="" title="pdf">
+                    <i class="far fa-file-pdf"></i>
+                  </a>
+                  <!--  -->
+                  <a href="" title="print">
+                    <i class="fas fa-print"></i>
+                  </a>
+                </div>
+                <!-- /.icon-igroup -->
+                <div class="pull-right">
+                  <span class="label label-primary">May 2019</span>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h3 class="text-center">
+                      Payslip for the month of May 2019
+                    </h3>
+                  </div>
+                </div>
+                <hr />
+                <!-- /.row 1 -->
+                <div class="row">
+                  <div class="col-lg-8">
+                    <h4>Sara Mohamed Samir</h4>
+                    <p>Education Manager</p>
+                    <p>Employee ID: FT-0009</p>
+                    <p>Joining Date: 1 Jan 2013</p>
+                  </div>
+                  <div class="col-lg-4">
+                    <h5>Payslip #49029</h5>
+                    <h5>Salary Month: May, 2019</h5>
+                    <h5>Payment Mode: Bank Transfer (ATM)</h5>
+                  </div>
+                </div>
+                <hr />
+                <!-- .row 2 -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="payslip-table">
+                      <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <strong>Basic Salery</strong>
+                              <span class="pull-right">2500 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Insurance</strong>
+                              <span class="pull-right">250 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Total Absence</strong>
+                              <small>(Per Days)</small>
+                              <span class="pull-right">4 Days</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Total Vactions</strong>
+                              <small>(Per Days)</small>
+                              <span class="pull-right">15 Days</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Late Days</strong>
+                              <small>(Per Minute)</small>
+                              <span class="pull-right">240 Min</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Late Days</strong>
+                              <small>(Per Days)</small>
+                              <span class="pull-right">4 Days</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Loans</strong>
+                              <span class="pull-right">250 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Bus Fee</strong>
+                              <span class="pull-right">150 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Insurance</strong>
+                              <span class="pull-right">250 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Overtime</strong>
+                              <small>(Per Minute)</small>
+                              <span class="pull-right">120 Min</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Overtime</strong>
+                              <small>(Per Days)</small>
+                              <span class="pull-right">2 Days</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Other Allowance</strong>
+                              <small></small>
+                              <span class="pull-right">0 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Total Deductions</strong>
+                              <small></small>
+                              <span class="pull-right">500 EGP</span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <strong>Net Salary</strong>
+                              <small></small>
+                              <span class="pull-right"
+                                ><strong>2698 EGP</strong></span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p class="text-center">
+                                Net Salary: 2698 EGP (Two thousand six hundred
+                                and ninety eight only.)
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- /.payslip-table -->
+                  </div>
+                  <!-- /.col-lg-8 -->
+                </div>
+                <!-- /.row 3 -->
+              </div>
+              <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+          </div>
+          <!-- /.modal-body -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.payslip modal-dialog -->
+    </div>
+    <!-- /.payslip model-wrapper -->
+
+    <!-- Complaint Models -->
+    <div
+      class="modal fade"
+      id="complaintModal"
+      class=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Insert New Complaint
+            </h4>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="">Complaint Type</label> <br />
+                <select
+                  name=""
+                  id=""
+                  class="form-control selectpicker show-tick"
+                  data-width="100%"
+                  required
+                >
+                  <option value="">Select your Complaint Type</option>
+                  <option value="">Complaint Type 1</option>
+                  <option value="">Complaint Type 2</option>
+                  <option value="">Complaint Type 3</option>
+                  <option value="">Complaint Type 4</option>
+                </select>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="">Department</label>
+                    <select
+                      class="form-control selectpicker show-tick"
+                      data-width="100%"
+                      required
+                    >
+                      <option value="">Select your Department</option>
+                      <option value="">Department Type 1</option>
+                      <option value="">Department Type 2</option>
+                      <option value="">Department Type 3</option>
+                      <option value="">Department Type 4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="">Complaint Date</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                </div>
+              </div>
+              <!-- From & To row -->
+              <div class="form-group">
+                <label for="">Details of your complaint</label>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  class="form-control"
+                  placeholder="Type the details of your complaint"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg">
+                Submit your complaint
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="text-center text-danger" style="font-size:.9em">
+              Note: All complaints take at least 24 hours to be answered and
+              possibly more time according to the vision of the school
+              administration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+      =======================================================
+                      JS 
+      =======================================================
+     -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Loans</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ====================================================================== -->
+
+      <!-- -------------------------------Strat loans wrapper-------------------- -->
+      <div class="loans-wrapper">
+        <div class="container">
+          <div class="pageHead">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="page-header">
+                  <h1>
+                    Loans
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                  </li>
+                  <li class="active">Loans</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <!-- ====================================================================== -->
+
+          <!-- -------------------------------Strat loans content-------------------- -->
+          <div class="loans-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a
+                        href="#loansList"
+                        aria-controls="loansList"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-hand-holding-usd fa-2x"></i>
+                        <br />
+                        Loans Request</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#insertLoan"
+                        aria-controls="insertLoan"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-pencil-alt fa-2x"></i> <br />
+                        Insert Loan</a
+                      >
+                    </li>
+                  </ul>
+                  <!-- --------------------Tab panes ----------------------->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="loansList">
+                      <!-- ---------------Start loans list Tap---------- -->
+                      <div class="loans-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="example"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Salary</th>
+                                  <th>Loan amount</th>
+                                  <th>Payment amount</th>
+                                  <th>From</th>
+                                  <th>To</th>
+                                  <th>Number of months</th>
+                                  <th>Status</th>
+
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Ahmed Hassan</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>1,000 EGP</td>
+                                  <td>1,000 EGP</td>
+                                  <td>1,000 EGP</td>
+                                  <td>07/07/2019</td>
+                                  <td>07/11/2019</td>
+                                  <td>01 month</td>
+                                  <td>
+                                    <span class="label label-warning"
+                                      >Pending</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <i
+                                      class="fas fa-bars"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".actionModal"
+                                      title="View details"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Ayman Ali</td>
+                                  <td>Administrative</td>
+                                  <td>3,000 EGP</td>
+                                  <td>5,000 EGP</td>
+                                  <td>1,000 EGP</td>
+                                  <td>07/06/2019</td>
+                                  <td>07/08/2019</td>
+                                  <td>03 months</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <span class="text-danger">Refused</span>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Basma Ibrahim</td>
+                                  <td>English Teacher</td>
+                                  <td>7,000 EGP</td>
+                                  <td>2,000 EGP</td>
+                                  <td>250 EGP</td>
+                                  <td>08/07/2019</td>
+                                  <td>07/11/2019</td>
+                                  <td>04 months</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <span class="text-danger">Refused</span>
+                                  </td>
+                                </tr>
+                                <tr class="danger">
+                                  <td>Sara Samir</td>
+                                  <td>Software Developer</td>
+                                  <td>9,000 EGP</td>
+                                  <td>6,000 EGP</td>
+                                  <td>500 EGP</td>
+                                  <td>12/07/2019</td>
+                                  <td>07/12/2020</td>
+                                  <td>09 months</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Refused</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <span class="text-danger">Refused</span>
+                                  </td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Moustafa Nassar</td>
+                                  <td>Stage Manager</td>
+                                  <td>8,000 EGP</td>
+                                  <td>6,000 EGP</td>
+                                  <td>2,000 EGP</td>
+                                  <td>11/02/2019</td>
+                                  <td>07/06/2019</td>
+                                  <td>04 months</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Approved</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <span class="text-success">Approved</span>
+                                  </td>
+                                </tr>
+                                <tr class="success">
+                                  <td>Heba Ahmed</td>
+                                  <td>Stage Manager Assistant</td>
+                                  <td>5,000 EGP</td>
+                                  <td>1,000 EGP</td>
+                                  <td>250 EGP</td>
+                                  <td>07/07/2019</td>
+                                  <td>07/11/2019</td>
+                                  <td>04 months</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Approved</span
+                                    >
+                                  </td>
+
+                                  <td>
+                                    <span class="text-success">Approved</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Salary</th>
+                                  <th>Loan amount</th>
+                                  <th>Payment amount</th>
+                                  <th>From</th>
+                                  <th>To</th>
+                                  <th>Number of months</th>
+                                  <th>Status</th>
+
+                                  <th>Action</th>
+                                </tr>
+                              </tfoot>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.loans-table -->
+                    </div>
+                    <!-- /.loans List Tap -->
+                    <!-- ============================================== -->
+
+                    <!-- ---------------Start insert Loan Tap---------- -->
+                    <div role="tabpanel" class="tab-pane" id="insertLoan">
+                      <form action="">
+                        <div class="row">
+                          <div class="form-group col-lg-3">
+                            <label for="">Department</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Select department</option>
+                              <option value="">Administratives</option>
+                              <option value="">Care Sevices</option>
+                              <option value="">Teachers</option>
+                              <option value=""
+                                >Information Technology (IT)</option
+                              >
+                              <option value="">Others</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-3">
+                            <div id="the-basics">
+                              <label for="">Employee name</label>
+                              <input
+                                type="text"
+                                class="form-control typeahead"
+                                placeholder="Enter employee name"
+                              />
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+
+                          <div class="form-group col-lg-3">
+                            <label for="">Loan amount</label>
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter loan amount"
+                              />
+                              <div class="input-group-addon">EGP</div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-3">
+                            <label for="">Payment amount</label>
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter payment amount"
+                              />
+                              <div class="input-group-addon">EGP</div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                        </div>
+                        <!-- /.row (1)-->
+                        <!-- ------------------------------------ -->
+                        <div class="row">
+                          <div class="form-group col-lg-4">
+                            <label for="">Date / From</label>
+                            <div class="input-group">
+                              <input
+                                type="date"
+                                class="form-control"
+                                data-format="dd/mm/yyyy"
+                              />
+                              <div class="input-group-addon">
+                                <i
+                                  class="
+                                        glyphicon glyphicon-calendar"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-4">
+                            <label for="">Date / To</label>
+                            <div class="input-group">
+                              <input
+                                type="date"
+                                class="form-control"
+                                data-format="dd/mm/yyyy"
+                              />
+                              <div class="input-group-addon">
+                                <i
+                                  class="
+                                          glyphicon glyphicon-calendar"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-4">
+                            <label for="">Number of month</label>
+                            <div class="input-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter number of month"
+                              />
+                              <div class="input-group-addon">Month</div>
+                            </div>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-12">
+                            <label for="">Note</label>
+                            <textarea
+                              name=""
+                              class="form-control"
+                              id=""
+                              cols="5"
+                              rows="5"
+                              placeholder="if you need to write a note"
+                            ></textarea>
+                          </div>
+                          <!-- /.form-group -->
+                        </div>
+                        <!-- /.row (2)-->
+                        <button type="submit" class="btn btn-primary btn-lg">
+                          Submit Loan
+                        </button>
+                      </form>
+                    </div>
+                    <!-- /.insert Loan Tap -->
+                    <!-- =================================================== -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.loans-content -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.loans-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+    <!-- ============================================================ -->
+
+    <!-- --------------------------Models---------------------------- -->
+
+    <!-- Action Modal -->
+    <div
+      class="modal fade actionModal"
+      id=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel">
+              Vacation Details
+            </h4>
+          </div>
+          <!-- /.modal-header -->
+          <div class="modal-body loans-modal">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <label for="">Employee Name:</label>
+                  <span class="">Ahmed Hassan</span>
+                </div>
+                <div>
+                  <label for="">Position:</label>
+                  <span>Arabic Teacher</span>
+                </div>
+                <div>
+                  <label for="">Basic Salary:</label>
+                  <span class="">1,000 EGP </span>
+                </div>
+                <div>
+                  <label for="">Loan amount:</label>
+                  <span>1,000 EGP</span>
+                </div>
+                <div>
+                  <label for="">Payment Date:</label>
+                  <span
+                    ><strong>From</strong> 02/10/2019
+                    <strong>To</strong> 18/10/2019
+                  </span>
+                </div>
+                <div>
+                  <label for="">Number of months:</label>
+                  <span>01 Month</span>
+                </div>
+                <div>
+                  <label for="">Reason:</label>
+                  <span>Personal Reason</span>
+                </div>
+                <div>
+                  <label for="">Submitted by:</label>
+                  <span>Ahmed Hassan</span>
+                </div>
+                <div>
+                  <label for="">Apply Date:</label>
+                  <span>01/10/2019</span>
+                </div>
+                <form action="">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <label for="">Status:</label>
+                    </div>
+                    <div class="col-lg-8">
+                      <label for="optionsRadios1" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios1"
+                          value="option1"
+                          checked
+                        />
+                        Pending
+                      </label>
+                      <label for="optionsRadios2" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios2"
+                          value="option2"
+                        />
+                        Approved
+                      </label>
+                      <label for="optionsRadios3" class="radio-inline">
+                        <input
+                          type="radio"
+                          name="optionsRadios"
+                          id="optionsRadios3"
+                          value="option3"
+                        />
+                        Refused
+                      </label>
+                    </div>
+                    <div class="col-lg-12">
+                      <label for="">Note:</label>
+                      <textarea
+                        class="form-control"
+                        name=""
+                        id=""
+                        cols="6"
+                        placeholder="if you need to write a note"
+                      ></textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.model-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save Data
+            </button>
+          </div>
+          <!-- /.modal-footer -->
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================= -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/typeahead.jquery.js"></script>
+    <script src="js/typeahead.bundle.js"></script>
+    <script src="js/app.js"></script>
+    <!-- ================================================================ -->
+  </body>
+</html>

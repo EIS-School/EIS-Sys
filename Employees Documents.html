@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EIS | Employees Documents</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="imgs/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/circular-std.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/bootstrap-select.min.css" />
+    <!-- <link rel="stylesheet" href="css/uploadsstyle.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css" />
+    <link rel="stylesheet" href="css/buttons.bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="myDiv" class="animate-bottom">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"
+              >EIS Cloud System<small>(Beta)</small></a
+            >
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <form class="navbar-form navbar-left">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-search"></i> Search
+              </button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- Notification navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-bell"></i> Notification
+                </a>
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-bell"></i> Notification</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Oh snap! Change a few things up and
+                      <a href="#" class="alert-link">try submitting again.</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- Message navbar  -->
+              <li class="dropdown messageNontify">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope"></i>
+                  Messages</a
+                >
+                <span class="">.</span>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="page-header">
+                      <h5><i class="far fa-envelope"></i> Messages</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="alert alert-warning" role="alert">
+                      Heads up! This
+                      <a href="#" class="alert-link"
+                        >alert needs your attention,</a
+                      >
+                      but it's not super important.
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user"></i>
+                  admin <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+      <!-- End Navbar tags -->
+      <!-- ====================================================================== -->
+
+      <!-- ------------------------------Employees Documents-wrapper------------------------ -->
+      <div class="EmployeesDocuments-wrapper">
+        <div class="container">
+          <div class="pageHead">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="page-header">
+                  <h1>
+                    Employees Documents
+                  </h1>
+                </div>
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="HRMDashboard(Admin).html">
+                      Human Resources Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a href="MainEmployees.html">
+                      Employees Dashboard
+                    </a>
+                  </li>
+                  <li class="active">Employees Documents</li>
+                </ol>
+              </div>
+              <!-- /.pageHead col -->
+            </div>
+            <!-- /.pageHead row -->
+          </div>
+          <!-- /.pageHead -->
+          <!-- ================================================================= -->
+
+          <!-- ------------------------Employees Documents-content---------------------- -->
+          <div class="EmployeesDocuments-content">
+            <div class="row">
+              <div class="col-lg-12">
+                <div>
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a
+                        href="#DocumentsRecord"
+                        aria-controls="permitRequest"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="far fa-folder-open fa-2x"></i> <br />
+                        Documents Record</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#EmployeeDocuments"
+                        aria-controls="permitInsert"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-user-edit fa-2x"></i> <br />
+                        Insert Employee Documents</a
+                      >
+                    </li>
+                    <li role="presentation">
+                      <a
+                        href="#DocumentType"
+                        aria-controls="permitEdit"
+                        role="tab"
+                        data-toggle="tab"
+                        ><i class="fas fa-pencil-alt fa-2x"></i> <br />
+                        Insert Document Type</a
+                      >
+                    </li>
+                  </ul>
+
+                  <!-- --------------------Tab panes ----------------------->
+                  <div class="tab-content">
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade in active"
+                      id="DocumentsRecord"
+                    >
+                      <!-- ---------------Start Documents Record list Tap---------- -->
+                      <div class="permissions-table">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <table
+                              id="example"
+                              class="table table-hover display"
+                              style="width:100%"
+                            >
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Position</th>
+                                  <th>Join date</th>
+                                  <th>Gender</th>
+                                  <th>Documents status</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Kamal Hassan</td>
+                                  <td>Arabic Teacher</td>
+                                  <td>30/08/2019</td>
+                                  <td>Male</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Completed</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <!--  -->
+                                <tr>
+                                  <td>Ali al-Basel</td>
+                                  <td>Accountant</td>
+                                  <td>22/07/2019</td>
+                                  <td>Male</td>
+                                  <td>
+                                    <span class="label label-danger"
+                                      >Not Completed</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                                <!--  -->
+                                <tr>
+                                  <td>Heba Moustafa</td>
+                                  <td>Science Teacher</td>
+                                  <td>01/07/2019</td>
+                                  <td>Female</td>
+                                  <td>
+                                    <span class="label label-success"
+                                      >Completed</span
+                                    >
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-edit"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".editModal"
+                                      title="Edit"
+                                    ></i>
+                                  </td>
+                                  <td>
+                                    <i
+                                      class="fas fa-trash"
+                                      data-toggle="modal"
+                                      data-tooltip="true"
+                                      data-placement="right"
+                                      data-target=".deleteModel"
+                                      title="Delete"
+                                    ></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.Documents Record-table -->
+                    </div>
+                    <!-- /.Documents Record List Tap -->
+                    <!-- ============================================================ -->
+
+                    <!-- ---------------Start insert Employee Documents Tap---------- -->
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade"
+                      id="EmployeeDocuments"
+                    >
+                      <form action="">
+                        <div class="row">
+                          <div class="form-group col-lg-6">
+                            <label for="">Department</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Selcet by Department</option>
+                              <option value="">All Employees</option>
+                              <option value="">Administratives</option>
+                              <option value="">Care Sevices</option>
+                              <option value="">Teachers</option>
+                              <option value=""
+                                >Information Technology (IT)</option
+                              >
+                              <option value="">Others</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Employee name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter employee name"
+                            />
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Document Type</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Selcet document type</option>
+                              <option value="">Birth Certificate </option>
+                              <option value="">Criminal Status </option>
+                              <option value="">Health Certificate </option>
+                              <option value="">National ID </option>
+
+                              <option value="">Others</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-6">
+                            <label for="">Choose Document</label>
+                            <input type="file" class="form-control" />
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-12">
+                            <button
+                              type="submit"
+                              class="btn btn-primary  pull-right"
+                            >
+                              <i class="fas fa-plus-circle"></i> Add Document
+                            </button>
+                          </div>
+                        </div>
+                        <!-- /.row-->
+                      </form>
+                      <!--  -->
+                      <div class="row">
+                        <div class="col-md-12">
+                          <table class="table table-hover display" id="example">
+                            <thead>
+                              <tr>
+                                <th>Document type</th>
+                                <th>Document required</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  National ID
+                                </td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Birth Certificate</td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Criminal Status
+                                </td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Health Certificate
+                                </td>
+                                <td class="text-danger">No / Optional</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!--  -->
+                    </div>
+                    <!-- /.insert insert Employee Documents Tap -->
+                    <!-- =================================================== -->
+
+                    <!-- ---------------Start Document Type Tap---------- -->
+                    <div
+                      role="tabpanel"
+                      class="tab-pane fade"
+                      id="DocumentType"
+                    >
+                      <form action="">
+                        <div class="row">
+                          <div class="form-group col-lg-4">
+                            <label for="">Document Type</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Selcet document type</option>
+                              <option value="">Birth Certificate </option>
+                              <option value="">Criminal Status </option>
+                              <option value="">Health Certificate </option>
+                              <option value="">National ID </option>
+
+                              <option value="">Others</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-4">
+                            <label for="">Document Required</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Choose your answer</option>
+                              <option value="">Yes / Required</option>
+                              <option value="">No / Optional</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+                          <div class="form-group col-lg-4">
+                            <label for="">Required For</label>
+                            <select
+                              name=""
+                              id=""
+                              class="form-control selectpicker show-tick"
+                              data-width="100%"
+                            >
+                              <option value="">Choose your answer</option>
+                              <option value="">Male</option>
+                              <option value="">Female</option>
+                              <option value="">Both</option>
+                            </select>
+                          </div>
+                          <!-- /.form-group -->
+
+                          <div class="form-group col-lg-12">
+                            <button
+                              type="submit"
+                              class="btn btn-primary  pull-right"
+                            >
+                              <i class="fas fa-plus-circle"></i> Add Document
+                            </button>
+                          </div>
+                        </div>
+                        <!-- /.row-->
+                      </form>
+                      <!--  -->
+                      <div class="row">
+                        <div class="col-md-12">
+                          <table class="table table-hover display" id="example">
+                            <thead>
+                              <tr>
+                                <th>Document type</th>
+                                <th>Document required</th>
+                                <th>Required for</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  National ID
+                                </td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>Both</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Birth Certificate</td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>Both</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Criminal Status
+                                </td>
+                                <td class="text-success">Yes / Required</td>
+                                <td>Both</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Health Certificate
+                                </td>
+                                <td class="text-danger">No / Optional</td>
+                                <td>Both</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                              <!--  -->
+                              <tr>
+                                <td>
+                                  Military Situation
+                                </td>
+                                <td class="text-success">Yes / Required</td>
+                                <td class="text-danger">For Males Only</td>
+                                <td>
+                                  <i
+                                    class="fas fa-edit"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".editModal"
+                                    title="Edit"
+                                  ></i>
+                                </td>
+                                <td>
+                                  <i
+                                    class="fas fa-trash"
+                                    data-toggle="modal"
+                                    data-tooltip="true"
+                                    data-placement="right"
+                                    data-target=".deleteModel"
+                                    title="Delete"
+                                  ></i>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <!--  -->
+                    </div>
+                    <!-- =================================================== -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.button-box -->
+          <!-- ============================================================ -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.Permission-wrapper -->
+    </div>
+    <!-- /.animate-bottom Loader-container -->
+    <!-- ============================================================ -->
+
+    <!-- --------------------------Models---------------------------- -->
+
+    <!------------------------ Edit Model ----------------------->
+    <div
+      class="modal fade editModal"
+      id=""
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editModal"
+    >
+      <div class="container">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="exampleModalLabel">
+                Edit Permission
+              </h4>
+            </div>
+            <!-- /.modal-header -->
+            <div class="modal-body">
+              <form action="" class="form">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label for="">Permission type</label>
+                      <select
+                        name=""
+                        id=""
+                        class="form-control selectpicker show-tick"
+                        data-width="100%"
+                      >
+                        <option value="">Selcet permission type</option>
+                        <option value="">Permission</option>
+                        <option value="">Mission</option>
+                        <option value="">Exception Permission</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label for="">Time / from</label>
+                      <div class="input-group">
+                        <input type="time" class="form-control" />
+                        <div class="input-group-addon">
+                          <i class="far fa-clock"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label for="">Time / to</label>
+                      <div class="input-group">
+                        <input type="time" class="form-control" />
+                        <div class="input-group-addon">
+                          <i class="far fa-clock"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                </div>
+                <!-- /.row -->
+              </form>
+            </div>
+            <!-- /.model-body -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save &amp; Update
+              </button>
+            </div>
+            <!-- /.modal-footer -->
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.model-wrapper -->
+    <!-- ================================================================= -->
+
+    <!------------------------ Delete modal ----------------------->
+    <div id="" class="modal fade deleteModel">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="fas fa-trash"></i>
+            </div>
+            <h4 class="modal-title">Are you sure?</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Do you really want to delete these records?<br />This process can
+              not be undone.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">
+              Cancel
+            </button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ================================================================= -->
+
+    <!-- ------------------------JavaScript------------------------------- -->
+    <script src="js/jquery-3.4.0.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.buttons.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/buttons.html5.js"></script>
+    <script src="js/buttons.print.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- ============================================================================= -->
+  </body>
+</html>
